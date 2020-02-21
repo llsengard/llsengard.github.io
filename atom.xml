@@ -108,7 +108,7 @@
     <link href="https://llsengard.github.io/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/"/>
     <id>https://llsengard.github.io/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/</id>
     <published>2020-02-21T12:20:47.000Z</published>
-    <updated>2020-02-21T13:47:59.765Z</updated>
+    <updated>2020-02-21T15:04:08.749Z</updated>
     
     <summary type="html">
     
@@ -128,9 +128,11 @@
     
       <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
     
+      <category term="字符串截取" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96/"/>
+    
       <category term="字符串排序" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8E%92%E5%BA%8F/"/>
     
-      <category term="字符串截取，字符串处理" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96%EF%BC%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
+      <category term="字符串处理" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
