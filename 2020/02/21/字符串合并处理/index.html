@@ -17,17 +17,17 @@
   <link rel="shortcut icon" href="/favicon.ico" />
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/blog/css/style.css">
 
   
-<script src="/js/pace.min.js"></script>
+<script src="/blog/js/pace.min.js"></script>
 
-
-  
 
   
 
-<link rel="alternate" href="/atom.xml" title="艾辛格" type="application/atom+xml">
+  
+
+<link rel="alternate" href="/blog/atom.xml" title="艾辛格" type="application/atom+xml">
 </head>
 
 </html>
@@ -53,12 +53,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/" class="article-date">
+      <a href="/blog/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/" class="article-date">
   <time datetime="2020-02-21T12:20:47.000Z" itemprop="datePublished">2020-02-21</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/">c语言牛客网</a>
+    <a class="article-category-link" href="/blog/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/">c语言牛客网</a>
   </div>
 
       
@@ -108,7 +108,7 @@
 <p>对合并后的字符串进行排序，要求为：下标为奇数的字符和下标为偶数的字符分别从小到大排序。这里的下标意思是字符在字符串中的位置。</p>
 <p>对排序后的字符串进行操作，如果字符为‘0’——‘9’或者‘A’——‘F’或者‘a’——‘f’，则对他们所代表的16进制的数进行BIT倒序的操作，并转换为相应的大写字符。如字符为‘4’，为0100b，则翻转后为0010b，也就是2。转换后的字符为‘2’； 如字符为‘7’，为0111b，则翻转后为1110b，也就是e。转换后的字符为大写‘E’。<a href="https://www.nowcoder.com/practice/d3d8e23870584782b3dd48f26cb39c8f?tpId=37&tqId=21253&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a></p>
 <p>举例：输入str1为”dec”，str2为”fab”，合并为“decfab”，分别对“dca”和“efb”进行排序，排序后为“abcedf”，转换后为“5D37BF”</p>
-<p><img src="/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/a5.png" alt></p>
+<p><img src="/blog/blog/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/a5.png" alt></p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>先合并，再分割，分别排序，再合并。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable : 4996)                     <span class="comment">//get 和 scanf 都不安全，在此忽略危险</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ProcessString</span><span class="params">(<span class="keyword">char</span>* str1, <span class="keyword">char</span>* str2, <span class="keyword">char</span>* strOutput)</span></span>;  <span class="comment">//处理函数 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span>* a, <span class="keyword">const</span> <span class="keyword">void</span>* b)</span></span>;               <span class="comment">//用于qsort的辅助函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str1[<span class="number">1000</span>];</span><br><span class="line">	<span class="keyword">char</span> str2[<span class="number">1000</span>];</span><br><span class="line">	<span class="keyword">char</span> str3[<span class="number">2000</span>];</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%s %s"</span>,str1,str2)!=EOF)</span><br><span class="line">	&#123;</span><br><span class="line">		ProcessString(str1, str2, str3);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ProcessString</span><span class="params">(<span class="keyword">char</span>* str1, <span class="keyword">char</span>* str2, <span class="keyword">char</span>* strOutput)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">strcat</span>(str1, str2);                              <span class="comment">//第一次合并</span></span><br><span class="line">	<span class="keyword">char</span> temp1[<span class="number">1000</span>];                               </span><br><span class="line">	<span class="keyword">char</span> temp2[<span class="number">1000</span>];</span><br><span class="line">	<span class="keyword">char</span> temp[<span class="number">2001</span>];</span><br><span class="line">	<span class="keyword">int</span> i, j, k;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>, j = <span class="number">0</span>, k = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(str1); i++)</span><br><span class="line">		<span class="keyword">if</span> ((i % <span class="number">2</span>) == <span class="number">0</span>)</span><br><span class="line">			temp1[j++] = str1[i];                  <span class="comment">//在temp1存储偶数位</span></span><br><span class="line">		<span class="keyword">else</span>  temp2[k++] = str1[i];                <span class="comment">//在temp2存储奇数位</span></span><br><span class="line">	temp1[j] = <span class="string">'\0'</span>;                               <span class="comment">//添加'\0'</span></span><br><span class="line">	temp2[k] = <span class="string">'\0'</span>;</span><br><span class="line"></span><br><span class="line">	qsort(temp1, j, <span class="keyword">sizeof</span>(<span class="keyword">char</span>), comp);             <span class="comment">//快速排序函数</span></span><br><span class="line">	qsort(temp2, k, <span class="keyword">sizeof</span>(<span class="keyword">char</span>), comp);             <span class="comment">//快速排序函数</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>, j = <span class="number">0</span>, k = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(str1); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> ((i % <span class="number">2</span>) == <span class="number">0</span>)</span><br><span class="line">			temp[i] = temp1[j++];</span><br><span class="line">		<span class="keyword">else</span> temp[i] = temp2[k++];                     <span class="comment">//合并字符串</span></span><br><span class="line">	&#125;</span><br><span class="line">	temp[i] = <span class="string">'\0'</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(temp); i++)                 <span class="comment">//按要求修改字符串，可以用switch</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">isdigit</span>(temp[i]))</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> ((temp[i]) == <span class="string">'1'</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				temp[i] = <span class="string">'8'</span>; <span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> ((temp[i]) == <span class="string">'2'</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				temp[i] = <span class="string">'4'</span>; <span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> ((temp[i]) == <span class="string">'3'</span>)</span><br><span class="line">			&#123;temp[i] = <span class="string">'C'</span>; <span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">if</span> ((temp[i]) == <span class="string">'4'</span>)</span><br><span class="line">			&#123;	</span><br><span class="line">			temp[i] = <span class="string">'2'</span>; <span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">if</span> ((temp[i]) == <span class="string">'5'</span>)</span><br><span class="line">			&#123;		</span><br><span class="line">		temp[i] = <span class="string">'A'</span>; <span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> ((temp[i]) == <span class="string">'7'</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				temp[i] = <span class="string">'E'</span>; <span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> ((temp[i]) == <span class="string">'8'</span>)</span><br><span class="line">			&#123;	</span><br><span class="line">				temp[i] = <span class="string">'1'</span>; <span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">isalpha</span>(temp[i]))</span><br><span class="line">			<span class="keyword">if</span>((temp[i]&lt;=<span class="string">'f'</span>&amp;&amp;temp[i]&gt;=<span class="string">'a'</span>)|| (temp[i] &lt;= <span class="string">'F'</span> &amp;&amp; temp[i] &gt;= <span class="string">'A'</span>))</span><br><span class="line">		&#123;</span><br><span class="line">			temp[i] = <span class="built_in">toupper</span>(temp[i]);</span><br><span class="line">			<span class="keyword">if</span> ((temp[i]) == <span class="string">'A'</span>)</span><br><span class="line">			&#123;temp[i] = <span class="string">'5'</span>; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">if</span> ((temp[i]) == <span class="string">'B'</span>)</span><br><span class="line">			&#123;temp[i] = <span class="string">'D'</span>; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">if</span> ((temp[i]) == <span class="string">'C'</span>)</span><br><span class="line">			&#123;temp[i] = <span class="string">'3'</span>; <span class="keyword">continue</span>; &#125;</span><br><span class="line">				<span class="keyword">if</span> ((temp[i]) == <span class="string">'D'</span>)</span><br><span class="line">				&#123;temp[i] = <span class="string">'B'</span>; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">if</span> ((temp[i]) == <span class="string">'E'</span>)</span><br><span class="line">			&#123;temp[i] = <span class="string">'7'</span>; <span class="keyword">continue</span>; &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">puts</span>(temp);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span>* a, <span class="keyword">const</span> <span class="keyword">void</span>* b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">char</span>* a1 = (<span class="keyword">const</span> <span class="keyword">char</span>*)a;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">char</span>* b1 = (<span class="keyword">const</span> <span class="keyword">char</span>*)b;</span><br><span class="line">	<span class="keyword">return</span> (<span class="built_in">strcmp</span>(a1, b1));                      <span class="comment">//将字符按照先后顺序排序</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -182,14 +182,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://llsengard.github.io/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://lsengard.gitee.io/blog/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c%E8%AF%AD%E8%A8%80/" rel="tag">c语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" rel="tag">字符串处理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96/" rel="tag">字符串截取</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8E%92%E5%BA%8F/" rel="tag">字符串排序</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/c%E8%AF%AD%E8%A8%80/" rel="tag">c语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" rel="tag">字符串处理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96/" rel="tag">字符串截取</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8E%92%E5%BA%8F/" rel="tag">字符串排序</a></li></ul>
 
 
     </footer>
@@ -200,7 +200,7 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/21/%E5%9D%90%E6%A0%87%E7%A7%BB%E5%8A%A8/" class="article-nav-link">
+      <a href="/blog/2020/02/21/%E5%9D%90%E6%A0%87%E7%A7%BB%E5%8A%A8/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -210,7 +210,7 @@
       </a>
     
     
-      <a href="/2020/02/21/%E6%9F%A5%E6%89%BE%E5%85%84%E5%BC%9F%E5%8D%95%E8%AF%8D/" class="article-nav-link">
+      <a href="/blog/2020/02/21/%E6%9F%A5%E6%89%BE%E5%85%84%E5%BC%9F%E5%8D%95%E8%AF%8D/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">查找兄弟单词</div>
       </a>
@@ -322,29 +322,29 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="艾辛格"></a>
+    <a href="/blog/"><img src="/images/ayer-side.svg" alt="艾辛格"></a>
   </div>
   
   <ul class="nav nav-main">
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/">主页</a>
+      <a class="nav-item-link" href="/blog/">主页</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/archives">归档</a>
+      <a class="nav-item-link" href="/blog/archives">归档</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/categories">分类</a>
+      <a class="nav-item-link" href="/blog/categories">分类</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags">标签</a>
+      <a class="nav-item-link" href="/blog/tags">标签</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/about">关于我</a>
+      <a class="nav-item-link" href="/blog/about">关于我</a>
     </li>
     
   </ul>
@@ -358,7 +358,7 @@
       </a>
       
       
-      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+      <a class="nav-item-link" target="_blank" href="/blog/atom.xml" title="RSS Feed">
         <i class="ri-rss-line"></i>
       </a>
       
@@ -381,36 +381,36 @@
   <div class="reward-box">
     
     <div class="reward-item">
-      <img class="reward-img" src="/images/alipay.jpg">
+      <img class="reward-img" src="/blog/images/alipay.jpg">
       <span class="reward-type">支付宝</span>
     </div>
     
     
     <div class="reward-item">
-      <img class="reward-img" src="/images/wechat.jpg">
+      <img class="reward-img" src="/blog/images/wechat.jpg">
       <span class="reward-type">微信</span>
     </div>
     
   </div>
 </div>
       
-<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/blog/js/jquery-2.0.3.min.js"></script>
 
 
-<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/blog/js/jquery.justifiedGallery.min.js"></script>
 
 
-<script src="/js/lazyload.min.js"></script>
+<script src="/blog/js/lazyload.min.js"></script>
 
 
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
+<script src="/blog/js/busuanzi-2.3.pure.min.js"></script>
 
 
-<script src="/js/share.js"></script>
+<script src="/blog/js/share.js"></script>
 
 
 
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+<script src="/blog/fancybox/jquery.fancybox.min.js"></script>
 
 
 
@@ -433,7 +433,7 @@
 
 
 
-<script src="/js/tocbot.min.js"></script>
+<script src="/blog/js/tocbot.min.js"></script>
 
 <script>
   // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
@@ -464,7 +464,7 @@
 </script>
 
 
-<script src="/js/ayer.js"></script>
+<script src="/blog/js/ayer.js"></script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
