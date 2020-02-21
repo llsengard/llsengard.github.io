@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    我的第一篇博客 |  艾辛格
+    简单错误记录 |  艾辛格
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -36,7 +36,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-我的第一篇博客" class="article article-type-post" itemscope
+  <article id="post-简单错误记录" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -44,7 +44,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  我的第一篇博客
+  简单错误记录
 </h1>
   
 
@@ -53,10 +53,14 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="article-date">
-  <time datetime="2020-02-20T10:59:11.000Z" itemprop="datePublished">2020-02-20</time>
+      <a href="/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2020-02-21T13:49:51.000Z" itemprop="datePublished">2020-02-21</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/">c语言牛客网</a>
+  </div>
+
       
       
 <div class="word_count">
@@ -64,7 +68,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">111字</span>
+            <span class="post-count">563字</span>
         </span>
     </span>
 
@@ -73,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">2分钟</span>
         </span>
     </span>
 </div>
@@ -100,12 +104,20 @@
       
 
       
-      <h2 id="第一个hexo博客"><a href="#第一个hexo博客" class="headerlink" title="第一个hexo博客"></a>第一个hexo博客</h2><p>这是我的第一个博客，学着用hexo搭建的，很开心可以实用到学到的知识。</p>
-<p>以后主要会在这儿分享一些自己学习中的问题，偶尔也可能分享一些其他的东西。</p>
-<p>因为搭建在github上所以有时候会比较慢。(。＿ 。） </p>
-<p>有兴趣的可以和我交流哦<em>(:з」∠)</em></p>
-<p>关于我里有我的联系方式，欢迎━(<em>｀∀´</em>)ノ亻!</p>
-<p><img src="/2020/02/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/al.png" alt></p>
+      <h1 id="简单错误记录"><a href="#简单错误记录" class="headerlink" title="简单错误记录"></a>简单错误记录</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>开发一个简单错误记录功能小模块，能够记录出错的代码所在的文件名称和行号。</p>
+<p>处理：</p>
+<ol>
+<li>记录最多8条错误记录，循环记录（或者说最后只输出最后出现的八条错误记录），对相同的错误记录（净文件名称和行号完全匹配）只记录一条，<strong>错误计数增加；</strong></li>
+<li>超过16个字符的文件名称，只记录文件的最后有效16个字符</li>
+<li>输入的文件可能带路径，记录文件名称不能带路径。<a href="https://www.nowcoder.com/practice/2baa6aba39214d6ea91a2e03dff3fbeb?tpId=37&tqId=21242&tPage=1&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking" target="_blank" rel="noopener">题目出处</a></li>
+</ol>
+<p><img src="/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/a4.png" alt></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>根据条件详细判断。</p>
+<p>重复时不记录数据，使原结构数组里的次数值+1；</p>
+<p>只记录后八条。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable : 4996)</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sp</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">bit</span>[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">int</span> hang;</span><br><span class="line">    <span class="keyword">int</span> time;</span><br><span class="line">&#125;NODE;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">bit</span>[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">char</span> number[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">17</span>];</span><br><span class="line">    NODE club[<span class="number">200</span>];</span><br><span class="line">    NODE* p;</span><br><span class="line">    <span class="keyword">int</span> i, j = <span class="number">0</span>, k, l = <span class="number">0</span>, end1, end2, end3, end4, end5, namber2;</span><br><span class="line">in:<span class="keyword">while</span> (gets(<span class="built_in">bit</span>) != <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>, end1 = <span class="number">0</span>, end2 = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(<span class="built_in">bit</span>); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">bit</span>[i] == <span class="string">'\\'</span>) </span><br><span class="line">            end1 = i + <span class="number">1</span>;                   <span class="comment">//end1为地址开始位置</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isspace</span>(<span class="built_in">bit</span>[i]))</span><br><span class="line">        &#123;</span><br><span class="line">            end2 = i;                       <span class="comment">//end2位地址结束位置</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((end2 - end1) &lt;= <span class="number">16</span>)                <span class="comment">//是否在16位里</span></span><br><span class="line">        i = end1;</span><br><span class="line">    <span class="keyword">else</span> i = end2 - <span class="number">16</span>;</span><br><span class="line">    <span class="keyword">for</span> (k = <span class="number">0</span>; i &lt; end2; i++)</span><br><span class="line">        name[k++] = <span class="built_in">bit</span>[i];                  <span class="comment">//存储名字</span></span><br><span class="line">    name[k] = <span class="string">'\0'</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = end2, l = <span class="number">0</span>, end4 = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(<span class="built_in">bit</span>); i++)</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">isdigit</span>(<span class="built_in">bit</span>[i]))</span><br><span class="line">        &#123;</span><br><span class="line">            end4 = i;                       <span class="comment">//end4行数结束位置</span></span><br><span class="line">            l++;</span><br><span class="line">        &#125;</span><br><span class="line">    end3 = end4 - l;                        <span class="comment">//end3行数开始位置</span></span><br><span class="line">    <span class="keyword">for</span> (i = end3, k = <span class="number">0</span>; i &lt; end4 + <span class="number">1</span>; i++)</span><br><span class="line">        number[k++] = <span class="built_in">bit</span>[i];</span><br><span class="line">    number[k] = <span class="string">'\0'</span>;                       <span class="comment">//记录行数</span></span><br><span class="line">    namber2 = atoi(number);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; j; i++)</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">strcmp</span>(name, club[i].<span class="built_in">bit</span>)==<span class="number">0</span> &amp;&amp; namber2 == club[i].hang)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">            (club[i].time)++;            <span class="comment">//重复使已记录值加1  不记录这次的数据</span></span><br><span class="line">            <span class="keyword">goto</span> in;</span><br><span class="line">        &#125;</span><br><span class="line">    p = (NODE*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(NODE));         <span class="comment">//不重复则记录数据,记得用free释放内存</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">strcpy</span>((*p).<span class="built_in">bit</span>, name);                 </span><br><span class="line">    p-&gt;hang = namber2;</span><br><span class="line">    p-&gt;time = <span class="number">1</span>;</span><br><span class="line">    club[j] = *p;</span><br><span class="line">    j++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (j &gt; <span class="number">8</span>) </span><br><span class="line">end5 = j - <span class="number">8</span>;                             <span class="comment">//只记录后五条</span></span><br><span class="line"><span class="keyword">else</span> end5 = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (i = end5; i &lt; j; i++)            </span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s %d %d\n"</span>, club[i].<span class="built_in">bit</span>, club[i].hang, club[i].time);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h3><p>通过存入另一数组的情况下去重，牢记malloc和free搭配，房子内存泄漏。</p>
 
       
       <!-- reward -->
@@ -175,13 +187,15 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://llsengard.github.io/2020/02/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://llsengard.github.io/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c%E8%AF%AD%E8%A8%80/" rel="tag">c语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/" rel="tag">条件判断</a></li></ul>
+
 
     </footer>
 
@@ -191,15 +205,11 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/21/%E5%8F%A5%E5%AD%90%E9%80%86%E5%BA%8F/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            句子逆序
-          
-        </div>
-      </a>
     
+      <a href="/2020/02/21/%E8%AF%86%E5%88%AB%E6%9C%89%E6%95%88%E7%9A%84IP%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8E%A9%E7%A0%81%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">识别有效的IP地址和掩码并进行分类统计</div>
+      </a>
     
   </nav>
 

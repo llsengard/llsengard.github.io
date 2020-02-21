@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="技术，学习，阅读，思考，博客" />
+   
+  <meta name="description" content="一座叫艾辛格的城市，技术，学习，阅读，思考，博客。" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    识别有效的IP地址和掩码并进行分类统计 |  艾辛格
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="艾辛格" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-识别有效的IP地址和掩码并进行分类统计" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  识别有效的IP地址和掩码并进行分类统计
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/21/%E8%AF%86%E5%88%AB%E6%9C%89%E6%95%88%E7%9A%84IP%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8E%A9%E7%A0%81%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1/" class="article-date">
+  <time datetime="2020-02-21T13:49:30.000Z" itemprop="datePublished">2020-02-21</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/">c语言牛客网</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.1k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h1 id="识别有效的IP地址和掩码并进行分类统计"><a href="#识别有效的IP地址和掩码并进行分类统计" class="headerlink" title="识别有效的IP地址和掩码并进行分类统计"></a>识别有效的IP地址和掩码并进行分类统计</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>请解析IP地址和对应的掩码，进行分类识别。要求按照A/B/C/D/E类地址归类，不合法的地址和掩码单独归类。</p>
+<p>所有的IP地址划分为 A,B,C,D,E五类</p>
+<p>A类地址1.0.0.0~126.255.255.255;</p>
+<p>B类地址128.0.0.0~191.255.255.255;</p>
+<p>C类地址192.0.0.0~223.255.255.255;</p>
+<p>D类地址224.0.0.0~239.255.255.255；</p>
+<p>E类地址240.0.0.0~255.255.255.255</p>
+<p>私网IP范围是：</p>
+<p>10.0.0.0～10.255.255.255</p>
+<p>172.16.0.0～172.31.255.255</p>
+<p>192.168.0.0～192.168.255.255</p>
+<p>子网掩码为二进制下前面是连续的1，然后全是0。（例如：255.255.255.32就是一个非法的掩码）</p>
+<p>注意二进制下全是1或者全是0均为非法</p>
+<p>注意：</p>
+<p>\1. 类似于【0.<em>.</em>.*】的IP地址不属于上述输入的任意一类，也不属于不合法ip地址，计数时可以忽略</p>
+<p>\2. 私有IP地址和A,B,C,D,E类地址是不冲突的？<a href="https://www.nowcoder.com/practice/de538edd6f7e4bc3a5689723a7435682?tpId=37&tqId=21241&rp=0&ru=/ta/huawei&qru=/ta/huawei/question-ranking" target="_blank" rel="noopener">题目出处</a><br><img src="/2020/02/21/%E8%AF%86%E5%88%AB%E6%9C%89%E6%95%88%E7%9A%84IP%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8E%A9%E7%A0%81%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1/a4.png" alt></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>根据条件详细判断。</p>
+<p>判断前面全1位的时候，循环比枚举好。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable : 4996)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">club</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span> ip[<span class="number">4</span>];           <span class="comment">//ip位</span></span><br><span class="line">	<span class="keyword">int</span> cp[<span class="number">4</span>];           <span class="comment">//掩码</span></span><br><span class="line">	<span class="keyword">int</span> type;            <span class="comment">//类型</span></span><br><span class="line">	<span class="keyword">int</span> flag;            <span class="comment">//是否无效</span></span><br><span class="line">	<span class="keyword">int</span> pro;             <span class="comment">//是否私有</span></span><br><span class="line">&#125;IP; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dig</span><span class="params">(<span class="keyword">int</span> i)</span>              <span class="comment">//判断是否为前面全1的数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ((i == <span class="number">255</span>) || (i == <span class="number">254</span>) || (i == <span class="number">252</span>) || (i == <span class="number">248</span>) || (i == <span class="number">240</span>) || (i == <span class="number">224</span>) || (i == <span class="number">192</span>) || (i == <span class="number">128</span>) || (i == <span class="number">0</span>))</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">else</span>  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	IP test[<span class="number">1000</span>];</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>, j, lenth, <span class="built_in">end</span>;</span><br><span class="line">	<span class="keyword">while</span> ((lenth = <span class="built_in">scanf</span>(<span class="string">"%d.%d.%d.%d~%d.%d.%d.%d"</span>, &amp;test[i].ip[<span class="number">0</span>], &amp;test[i].ip[<span class="number">1</span>], &amp;test[i].ip[<span class="number">2</span>], &amp;test[i].ip[<span class="number">3</span>], &amp;test[i].cp[<span class="number">0</span>], &amp;test[i].cp[<span class="number">1</span>], &amp;test[i].cp[<span class="number">2</span>], &amp;test[i].cp[<span class="number">3</span>])) != EOF)</span><br><span class="line">	&#123;</span><br><span class="line">		test[i].flag = <span class="number">1</span>;</span><br><span class="line">		test[i].pro = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">if</span> (lenth != <span class="number">8</span>)            <span class="comment">//判断是否为8个数字</span></span><br><span class="line">		&#123;</span><br><span class="line">			test[i].flag = <span class="number">0</span>;</span><br><span class="line">			i++;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++)              <span class="comment">//判断数字是否在255以内</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (test[i].ip[j] &gt; <span class="number">255</span> || test[i].cp[j] &gt; <span class="number">255</span>)</span><br><span class="line">				test[i].flag = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> ((test[i].cp[<span class="number">0</span>] == <span class="number">255</span>) &amp;&amp; (test[i].cp[<span class="number">1</span>] == <span class="number">255</span>) &amp;&amp; (test[i].cp[<span class="number">2</span>] == <span class="number">255</span>) &amp;&amp; (test[i].cp[<span class="number">3</span>] == <span class="number">255</span>))                 <span class="comment">//全1</span></span><br><span class="line">		&#123;</span><br><span class="line">			test[i].flag = <span class="number">0</span>;</span><br><span class="line">			i++;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> ((test[i].cp[<span class="number">0</span>] == <span class="number">0</span>) &amp;&amp; (test[i].cp[<span class="number">1</span>] == <span class="number">0</span>) &amp;&amp; (test[i].cp[<span class="number">2</span>] == <span class="number">0</span>) &amp;&amp; (test[i].cp[<span class="number">3</span>] == <span class="number">0</span>))              <span class="comment">//全0</span></span><br><span class="line">		&#123;</span><br><span class="line">			test[i].flag = <span class="number">0</span>;</span><br><span class="line">			i++;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		j = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (test[i].cp[j] == <span class="number">255</span>)     <span class="comment">//找到不是全1的掩码位</span></span><br><span class="line">			j++;</span><br><span class="line">		<span class="keyword">if</span> (dig(test[i].cp[j]))           <span class="comment">//判断</span></span><br><span class="line">		&#123;</span><br><span class="line">			test[i].flag = <span class="number">0</span>;</span><br><span class="line">			i++;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (j++; j &lt; <span class="number">4</span>; j++)          <span class="comment">//后面是否全为0</span></span><br><span class="line">			<span class="keyword">if</span> (test[i].cp[j] != <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				test[i].flag = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">			&#125;;</span><br><span class="line">		<span class="keyword">if</span> (test[i].flag == <span class="number">0</span>)          <span class="comment">//非法则退出</span></span><br><span class="line">		&#123;</span><br><span class="line">			i++;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;<span class="comment">//下面为笨拙的判断条件</span></span><br><span class="line">		<span class="comment">/*if ((test[i].cp[0] == 255) &amp;&amp; (test[i].cp[1] == 255) &amp;&amp; (test[i].cp[2] == 255))</span></span><br><span class="line"><span class="comment">			if (dig(test[i].cp[3]))</span></span><br><span class="line"><span class="comment">			&#123;</span></span><br><span class="line"><span class="comment">				test[i].flag = 0;</span></span><br><span class="line"><span class="comment">				i++;</span></span><br><span class="line"><span class="comment">				continue;</span></span><br><span class="line"><span class="comment">			&#125;</span></span><br><span class="line"><span class="comment">		if ((test[i].cp[0] == 255) &amp;&amp; (test[i].cp[1] == 255) &amp;&amp; (test[i].cp[3] == 0))</span></span><br><span class="line"><span class="comment">			if (dig(test[i].cp[2]))</span></span><br><span class="line"><span class="comment">			&#123;</span></span><br><span class="line"><span class="comment">				test[i].flag = 0;</span></span><br><span class="line"><span class="comment">				i++;</span></span><br><span class="line"><span class="comment">				continue;</span></span><br><span class="line"><span class="comment">			&#125;</span></span><br><span class="line"><span class="comment">		if ((test[i].cp[0] == 255) &amp;&amp; (test[i].cp[3] == 0) &amp;&amp; (test[i].cp[2] == 0))</span></span><br><span class="line"><span class="comment">			if (dig(test[i].cp[1]))</span></span><br><span class="line"><span class="comment">			&#123;</span></span><br><span class="line"><span class="comment">				test[i].flag = 0;</span></span><br><span class="line"><span class="comment">				i++;</span></span><br><span class="line"><span class="comment">				continue;</span></span><br><span class="line"><span class="comment">			&#125;</span></span><br><span class="line"><span class="comment">		if ((test[i].cp[3] == 0) &amp;&amp; (test[i].cp[1] == 0) &amp;&amp; (test[i].cp[2] == 0))</span></span><br><span class="line"><span class="comment">			if (dig(test[i].cp[0]))</span></span><br><span class="line"><span class="comment">			&#123;</span></span><br><span class="line"><span class="comment">				test[i].flag = 0;</span></span><br><span class="line"><span class="comment">				i++;</span></span><br><span class="line"><span class="comment">				continue;</span></span><br><span class="line"><span class="comment">			&#125;*/</span></span><br><span class="line">		<span class="keyword">if</span> (test[i].flag == <span class="number">1</span>)   <span class="comment">//判断分类以及是否为私网</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (test[i].ip[<span class="number">0</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (test[i].ip[<span class="number">0</span>] &lt;= <span class="number">126</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					test[i].type = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">if</span> (test[i].ip[<span class="number">0</span>] == <span class="number">10</span>)</span><br><span class="line">						test[i].pro = <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (test[i].ip[<span class="number">0</span>] &lt; <span class="number">128</span>);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (test[i].ip[<span class="number">0</span>] &lt; <span class="number">192</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					test[i].type = <span class="number">2</span>;</span><br><span class="line">					<span class="keyword">if</span> ((test[i].ip[<span class="number">0</span>] == <span class="number">172</span>) &amp;&amp; (test[i].ip[<span class="number">1</span>] &gt; <span class="number">16</span>) &amp;&amp; (test[i].ip[<span class="number">1</span>] &lt; <span class="number">32</span>))</span><br><span class="line">						test[i].pro = <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (test[i].ip[<span class="number">0</span>] &lt; <span class="number">224</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					test[i].type = <span class="number">3</span>;</span><br><span class="line">					<span class="keyword">if</span> ((test[i].ip[<span class="number">0</span>] == <span class="number">192</span>) &amp;&amp; (test[i].ip[<span class="number">1</span>] == <span class="number">168</span>))</span><br><span class="line">						test[i].pro = <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (test[i].ip[<span class="number">0</span>] &lt; <span class="number">240</span>)</span><br><span class="line">					test[i].type = <span class="number">4</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (test[i].ip[<span class="number">0</span>] &lt; <span class="number">256</span>)</span><br><span class="line">					test[i].type = <span class="number">5</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;<span class="built_in">end</span> = i;</span><br><span class="line">	<span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>, c = <span class="number">0</span>, d = <span class="number">0</span>, e = <span class="number">0</span>, f = <span class="number">0</span>, error = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">end</span>; i++)                  <span class="comment">//统计数目</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (test[i].flag == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (test[i].type == <span class="number">1</span>)</span><br><span class="line">				a++;</span><br><span class="line">			<span class="keyword">if</span> (test[i].type == <span class="number">2</span>)</span><br><span class="line">				b++;</span><br><span class="line">			<span class="keyword">if</span> (test[i].type == <span class="number">3</span>)</span><br><span class="line">				c++;</span><br><span class="line">			<span class="keyword">if</span> (test[i].type == <span class="number">4</span>)</span><br><span class="line">				d++;</span><br><span class="line">			<span class="keyword">if</span> (test[i].type == <span class="number">5</span>)</span><br><span class="line">				e++;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (test[i].pro == <span class="number">1</span>)</span><br><span class="line">				f++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> error++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d %d %d %d %d %d %d"</span>, a, b, c, d, e, error, f);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h3><p>枚举使代码过于复杂，工作量大，善用循环解决问题。</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://llsengard.github.io/2020/02/21/%E8%AF%86%E5%88%AB%E6%9C%89%E6%95%88%E7%9A%84IP%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8E%A9%E7%A0%81%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c%E8%AF%AD%E8%A8%80/" rel="tag">c语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/" rel="tag">条件判断</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            简单错误记录
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/02/21/%E5%9D%90%E6%A0%87%E7%A7%BB%E5%8A%A8/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">坐标移动</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2020
+        lsengard
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="艾辛格"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['我们坚持一件事情，并不是因为这样做了会有效果，而是坚信，这样做是对的','愿你一生努力，一生被爱','想要的都拥有，得不到的都释怀'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 80,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>

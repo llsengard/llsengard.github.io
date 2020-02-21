@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    我的第一篇博客 |  艾辛格
+    查找兄弟单词 |  艾辛格
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -36,7 +36,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-我的第一篇博客" class="article article-type-post" itemscope
+  <article id="post-查找兄弟单词" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -44,7 +44,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  我的第一篇博客
+  查找兄弟单词
 </h1>
   
 
@@ -53,10 +53,14 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="article-date">
-  <time datetime="2020-02-20T10:59:11.000Z" itemprop="datePublished">2020-02-20</time>
+      <a href="/2020/02/21/%E6%9F%A5%E6%89%BE%E5%85%84%E5%BC%9F%E5%8D%95%E8%AF%8D/" class="article-date">
+  <time datetime="2020-02-21T12:20:47.000Z" itemprop="datePublished">2020-02-21</time>
 </a>
       
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/">c语言牛客网</a>
+  </div>
+
       
       
 <div class="word_count">
@@ -64,7 +68,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">111字</span>
+            <span class="post-count">481字</span>
         </span>
     </span>
 
@@ -73,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">2分钟</span>
         </span>
     </span>
 </div>
@@ -100,12 +104,15 @@
       
 
       
-      <h2 id="第一个hexo博客"><a href="#第一个hexo博客" class="headerlink" title="第一个hexo博客"></a>第一个hexo博客</h2><p>这是我的第一个博客，学着用hexo搭建的，很开心可以实用到学到的知识。</p>
-<p>以后主要会在这儿分享一些自己学习中的问题，偶尔也可能分享一些其他的东西。</p>
-<p>因为搭建在github上所以有时候会比较慢。(。＿ 。） </p>
-<p>有兴趣的可以和我交流哦<em>(:з」∠)</em></p>
-<p>关于我里有我的联系方式，欢迎━(<em>｀∀´</em>)ノ亻!</p>
-<p><img src="/2020/02/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/al.png" alt></p>
+      <h1 id="查找兄弟单词"><a href="#查找兄弟单词" class="headerlink" title="查找兄弟单词"></a>查找兄弟单词</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><img src="http://uploadfiles.nowcoder.com/images/20151225/60_1451038439514_F3CCDD27D2000E3F9255A7E3E2C48800" alt="img"></p>
+<p><img src="http://uploadfiles.nowcoder.com/images/20151225/60_1451038452960_156005C5BAF40FF51A327F1C34F2975B" alt="img"></p>
+<p><img src="http://uploadfiles.nowcoder.com/images/20151225/60_1451038463479_799BAD5A3B514F096E69BBC4A7896CD9" alt="img"></p>
+<p><a href="https://www.nowcoder.com/practice/03ba8aeeef73400ca7a37a5f3370fe68?tpId=37&tqId=21250&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a></p>
+<p><img src="/2020/02/21/%E6%9F%A5%E6%89%BE%E5%85%84%E5%BC%9F%E5%8D%95%E8%AF%8D/a3.png" alt></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>先存储，再排序，按要求依次查找，重点在如何按要求查询单词。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable : 4996)                       <span class="comment">//忽略scanf的安全警告</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">comp</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span>* a, <span class="keyword">const</span> <span class="keyword">void</span>* b)</span>               <span class="comment">//用于快速排序的辅助函数，比较字符串</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">char</span>* a1 = (<span class="keyword">const</span> <span class="keyword">char</span>*)a;</span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">char</span>* b1 = (<span class="keyword">const</span> <span class="keyword">char</span>*)b;</span><br><span class="line">	<span class="keyword">return</span>  <span class="built_in">strcmp</span>(a1, b1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a) != EOF) &#123;</span><br><span class="line">		<span class="keyword">int</span> b = <span class="number">0</span>, c, d = <span class="number">0</span>, i, j, flag;</span><br><span class="line">		<span class="keyword">char</span> book[<span class="number">1000</span>][<span class="number">51</span>];                          <span class="comment">//二维数组当字典</span></span><br><span class="line">		<span class="keyword">char</span> <span class="keyword">word</span>[<span class="number">51</span>];</span><br><span class="line">		<span class="keyword">char</span> copy[<span class="number">51</span>];</span><br><span class="line">		<span class="keyword">int</span> num[<span class="number">1000</span>];</span><br><span class="line">		<span class="keyword">char</span>* p;</span><br><span class="line">		<span class="comment">//while (getchar() != ' ');</span></span><br><span class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; a; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%s"</span>, book[i]);                  <span class="comment">//字典存储单词</span></span><br><span class="line">			<span class="comment">//while (getchar() != ' ');</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, <span class="keyword">word</span>);                         <span class="comment">//待查找的单词</span></span><br><span class="line">		<span class="comment">//while (getchar() != ' ');</span></span><br><span class="line"></span><br><span class="line">		qsort(book, a, <span class="keyword">sizeof</span>(<span class="keyword">char</span>) * <span class="number">51</span>, comp);       <span class="comment">//对字典排序</span></span><br><span class="line">		<span class="keyword">for</span> (j = <span class="number">0</span>, b = <span class="number">0</span>; j &lt; a; j++) </span><br><span class="line">		&#123;</span><br><span class="line">			flag = <span class="number">1</span>;                                <span class="comment">//判断是否查找到兄弟单词</span></span><br><span class="line">			<span class="built_in">strcpy</span>(copy, book[j]);                   </span><br><span class="line">			<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(<span class="keyword">word</span>); i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">strcmp</span>(copy, <span class="keyword">word</span>) == <span class="number">0</span>)         <span class="comment">//排除完全相同的</span></span><br><span class="line">				&#123;</span><br><span class="line">					flag = <span class="number">0</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">strlen</span>(copy) != <span class="built_in">strlen</span>(<span class="keyword">word</span>))   <span class="comment">//排除长度不同的</span></span><br><span class="line">				&#123;</span><br><span class="line">					flag = <span class="number">0</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> ((p = <span class="built_in">strchr</span>(copy, <span class="keyword">word</span>[i])) == <span class="literal">NULL</span>)   <span class="comment">//排除不该单词的字符的</span></span><br><span class="line">				&#123;</span><br><span class="line">					flag = <span class="number">0</span>;</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> ((p = <span class="built_in">strchr</span>(copy, <span class="keyword">word</span>[i])) != <span class="literal">NULL</span>)   <span class="comment">//依次查找字典含有该单词的字符</span></span><br><span class="line">					*p = <span class="string">'2'</span>;                              <span class="comment">//已查找过的字符设为无关项</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (flag == <span class="number">1</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				num[b++] = j;             <span class="comment">//按顺序存储兄弟单词在字典中的位置</span></span><br><span class="line">				d++;                      <span class="comment">//统计兄弟单词数目</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, d);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;c);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (c &lt;= d)                        <span class="comment">//输入合法值</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%s\n"</span>, book[num[c - <span class="number">1</span>]]);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//while (getchar() != '\n');</span></span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h3><p>巧妙使用strchr函数将单词的字母依次查找，通过修改为无关值排除了重复计算的可能，但是这样导致无法多次使用（字典单词都被修改为了无关项目），可以通过临时值存储字符，查询之后恢复原单词。</p>
 
       
       <!-- reward -->
@@ -175,13 +182,15 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://llsengard.github.io/2020/02/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://llsengard.github.io/2020/02/21/%E6%9F%A5%E6%89%BE%E5%85%84%E5%BC%9F%E5%8D%95%E8%AF%8D/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c%E8%AF%AD%E8%A8%80/" rel="tag">c语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" rel="tag">字符串处理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8E%92%E5%BA%8F/" rel="tag">字符串排序</a></li></ul>
+
 
     </footer>
 
@@ -191,15 +200,20 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/21/%E5%8F%A5%E5%AD%90%E9%80%86%E5%BA%8F/" class="article-nav-link">
+      <a href="/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            句子逆序
+            字符串合并处理
           
         </div>
       </a>
     
+    
+      <a href="/2020/02/21/%E6%95%B4%E6%95%B0%E4%B8%8Eip%E5%9C%B0%E5%9D%80%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">整数与ip地址间的转换</div>
+      </a>
     
   </nav>
 

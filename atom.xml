@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://llsengard.github.io/"/>
-  <updated>2020-02-21T09:20:18.978Z</updated>
+  <updated>2020-02-21T14:33:34.898Z</updated>
   <id>https://llsengard.github.io/</id>
   
   <author>
@@ -17,11 +17,309 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>简单错误记录</title>
+    <link href="https://llsengard.github.io/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/"/>
+    <id>https://llsengard.github.io/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/</id>
+    <published>2020-02-21T13:49:51.000Z</published>
+    <updated>2020-02-21T14:33:34.898Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;简单错误记录&quot;&gt;&lt;a href=&quot;#简单错误记录&quot; class=&quot;headerlink&quot; title=&quot;简单错误记录&quot;&gt;&lt;/a&gt;简单错误记录&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="条件判断" scheme="https://llsengard.github.io/tags/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>识别有效的IP地址和掩码并进行分类统计</title>
+    <link href="https://llsengard.github.io/2020/02/21/%E8%AF%86%E5%88%AB%E6%9C%89%E6%95%88%E7%9A%84IP%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8E%A9%E7%A0%81%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1/"/>
+    <id>https://llsengard.github.io/2020/02/21/%E8%AF%86%E5%88%AB%E6%9C%89%E6%95%88%E7%9A%84IP%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8E%A9%E7%A0%81%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1/</id>
+    <published>2020-02-21T13:49:30.000Z</published>
+    <updated>2020-02-21T14:18:42.377Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;识别有效的IP地址和掩码并进行分类统计&quot;&gt;&lt;a href=&quot;#识别有效的IP地址和掩码并进行分类统计&quot; class=&quot;headerlink&quot; title=&quot;识别有效的IP地址和掩码并进行分类统计&quot;&gt;&lt;/a&gt;识别有效的IP地址和掩码并进行分类统计&lt;/h1&gt;&lt;h4
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="条件判断" scheme="https://llsengard.github.io/tags/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>坐标移动</title>
+    <link href="https://llsengard.github.io/2020/02/21/%E5%9D%90%E6%A0%87%E7%A7%BB%E5%8A%A8/"/>
+    <id>https://llsengard.github.io/2020/02/21/%E5%9D%90%E6%A0%87%E7%A7%BB%E5%8A%A8/</id>
+    <published>2020-02-21T13:49:02.000Z</published>
+    <updated>2020-02-21T14:39:42.554Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;坐标移动&quot;&gt;&lt;a href=&quot;#坐标移动&quot; class=&quot;headerlink&quot; title=&quot;坐标移动&quot;&gt;&lt;/a&gt;坐标移动&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="条件判断" scheme="https://llsengard.github.io/tags/%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>字符串合并处理</title>
+    <link href="https://llsengard.github.io/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/"/>
+    <id>https://llsengard.github.io/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/</id>
+    <published>2020-02-21T12:20:47.000Z</published>
+    <updated>2020-02-21T13:47:59.765Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;字符串合并处理&quot;&gt;&lt;a href=&quot;#字符串合并处理&quot; class=&quot;headerlink&quot; title=&quot;字符串合并处理&quot;&gt;&lt;/a&gt;字符串合并处理&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="字符串排序" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="字符串截取，字符串处理" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96%EF%BC%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>查找兄弟单词</title>
+    <link href="https://llsengard.github.io/2020/02/21/%E6%9F%A5%E6%89%BE%E5%85%84%E5%BC%9F%E5%8D%95%E8%AF%8D/"/>
+    <id>https://llsengard.github.io/2020/02/21/%E6%9F%A5%E6%89%BE%E5%85%84%E5%BC%9F%E5%8D%95%E8%AF%8D/</id>
+    <published>2020-02-21T12:20:47.000Z</published>
+    <updated>2020-02-21T13:45:07.896Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;查找兄弟单词&quot;&gt;&lt;a href=&quot;#查找兄弟单词&quot; class=&quot;headerlink&quot; title=&quot;查找兄弟单词&quot;&gt;&lt;/a&gt;查找兄弟单词&lt;/h1&gt;&lt;h3 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="字符串排序" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="字符串处理" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>整数与ip地址间的转换</title>
+    <link href="https://llsengard.github.io/2020/02/21/%E6%95%B4%E6%95%B0%E4%B8%8Eip%E5%9C%B0%E5%9D%80%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/"/>
+    <id>https://llsengard.github.io/2020/02/21/%E6%95%B4%E6%95%B0%E4%B8%8Eip%E5%9C%B0%E5%9D%80%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/</id>
+    <published>2020-02-21T12:00:00.000Z</published>
+    <updated>2020-02-21T13:47:15.863Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;整数与ip地址间的转换&quot;&gt;&lt;a href=&quot;#整数与ip地址间的转换&quot; class=&quot;headerlink&quot; title=&quot;整数与ip地址间的转换&quot;&gt;&lt;/a&gt;整数与ip地址间的转换&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="进制转换" scheme="https://llsengard.github.io/tags/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>汽水瓶</title>
+    <link href="https://llsengard.github.io/2020/02/21/%E6%B1%BD%E6%B0%B4%E7%93%B6/"/>
+    <id>https://llsengard.github.io/2020/02/21/%E6%B1%BD%E6%B0%B4%E7%93%B6/</id>
+    <published>2020-02-21T10:08:11.000Z</published>
+    <updated>2020-02-21T14:38:36.070Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;汽水瓶&quot;&gt;&lt;a href=&quot;#汽水瓶&quot; class=&quot;headerlink&quot; title=&quot;汽水瓶&quot;&gt;&lt;/a&gt;汽水瓶&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="函数递归" scheme="https://llsengard.github.io/tags/%E5%87%BD%E6%95%B0%E9%80%92%E5%BD%92/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【中级】密码截取</title>
+    <link href="https://llsengard.github.io/2020/02/21/%E3%80%90%E4%B8%AD%E7%BA%A7%E3%80%91%E5%AF%86%E7%A0%81%E6%88%AA%E5%8F%96/"/>
+    <id>https://llsengard.github.io/2020/02/21/%E3%80%90%E4%B8%AD%E7%BA%A7%E3%80%91%E5%AF%86%E7%A0%81%E6%88%AA%E5%8F%96/</id>
+    <published>2020-02-21T10:07:11.000Z</published>
+    <updated>2020-02-21T13:44:15.724Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;【中级】密码截取&quot;&gt;&lt;a href=&quot;#【中级】密码截取&quot; class=&quot;headerlink&quot; title=&quot;【中级】密码截取&quot;&gt;&lt;/a&gt;【中级】密码截取&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="字符串截取" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96/"/>
+    
+      <category term="字符串逆序" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%80%86%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>明明的随机数</title>
+    <link href="https://llsengard.github.io/2020/02/21/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
+    <id>https://llsengard.github.io/2020/02/21/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</id>
+    <published>2020-02-21T10:07:11.000Z</published>
+    <updated>2020-02-21T13:43:31.128Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;明明的随机数&quot;&gt;&lt;a href=&quot;#明明的随机数&quot; class=&quot;headerlink&quot; title=&quot;明明的随机数&quot;&gt;&lt;/a&gt;明明的随机数&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="排序" scheme="https://llsengard.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+      <category term="去重" scheme="https://llsengard.github.io/tags/%E5%8E%BB%E9%87%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>单词倒排</title>
+    <link href="https://llsengard.github.io/2020/02/21/%E5%8D%95%E8%AF%8D%E5%80%92%E6%8E%92/"/>
+    <id>https://llsengard.github.io/2020/02/21/%E5%8D%95%E8%AF%8D%E5%80%92%E6%8E%92/</id>
+    <published>2020-02-21T09:42:39.000Z</published>
+    <updated>2020-02-21T13:45:44.855Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;【中级】单词倒排（C语言）&quot;&gt;&lt;a href=&quot;#【中级】单词倒排（C语言）&quot; class=&quot;headerlink&quot; title=&quot;【中级】单词倒排（C语言）&quot;&gt;&lt;/a&gt;【中级】单词倒排（C语言）&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="字符串逆序" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%80%86%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>句子逆序</title>
     <link href="https://llsengard.github.io/2020/02/21/%E5%8F%A5%E5%AD%90%E9%80%86%E5%BA%8F/"/>
     <id>https://llsengard.github.io/2020/02/21/%E5%8F%A5%E5%AD%90%E9%80%86%E5%BA%8F/</id>
     <published>2020-02-21T07:58:53.000Z</published>
-    <updated>2020-02-21T09:20:18.978Z</updated>
+    <updated>2020-02-21T13:46:19.071Z</updated>
     
     <summary type="html">
     
@@ -36,10 +334,12 @@
     </summary>
     
     
-      <category term="c 语言" scheme="https://llsengard.github.io/categories/c-%E8%AF%AD%E8%A8%80/"/>
+      <category term="c语言牛客网" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80%E7%89%9B%E5%AE%A2%E7%BD%91/"/>
     
     
-      <category term="c语言   字符串逆序" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80-%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%80%86%E5%BA%8F/"/>
+      <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="字符串逆序" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%80%86%E5%BA%8F/"/>
     
   </entry>
   
@@ -48,9 +348,17 @@
     <link href="https://llsengard.github.io/2020/02/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
     <id>https://llsengard.github.io/2020/02/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
     <published>2020-02-20T10:59:11.000Z</published>
-    <updated>2020-02-20T10:59:11.160Z</updated>
+    <updated>2020-02-21T09:36:22.148Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;第一个hexo博客&quot;&gt;&lt;a href=&quot;#第一个hexo博客&quot; class=&quot;headerlink&quot;
+        
+      
     
     </summary>
     
