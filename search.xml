@@ -1,6 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数据结构</title>
+    <url>/2020/02/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p><strong>优点</strong>：可以随机访问</p>
+<p>​        随机访问是数组的强项，因为它们的元素在内存中是连续排列的。这种连续的排列方式使得数组中的任何元素能够在O（1）的时间内通过其索引访问。<a id="more"></a></p>
+<p><strong>缺点</strong>：编译时就确定了大小，插入删除的复杂度高都为o(n)便于查找某个元素（二分法）</p>
+<h5 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h5><p><strong>优点</strong>：易于插入和删除元素，可以动态的分配空间</p>
+<p>​        链表，除了销毁链表操作外，其他的操作都具有O（1）的运行时复杂度。</p>
+<p><strong>缺点</strong>：但是不能随机访问只能顺序访问查找元素不方便（必须遍历链表）</p>
+<p>​        想得到指向链表中某个特定元素的指针其代价是很高的。例如，在最坏的情况下，可能需要遍历整个链表，此时的开销就是O（n），这里n代表链表中的元素个数。</p>
+<p><strong>链表的例子：页帧管理</strong></p>
+<p>​        虚拟内存是一种地址空间的映射机制，它允许进程（运行的程序）不必完全加载到物理内存（系统的实际内存）中也可以得到运行。这种方式的一个优点是进程可以使用比系统实际所允许的物理内存大得多的地址空间。另一个优点是多个进程能够共享系统的内存以并发的每一个进程都有它自己的页表，将它的虚拟地址空间中的页映射到物理内存中的页帧上。当某个进程引用一个虚拟地址时，页表中的某项需要检查并决定该页关联到哪个物理页帧上（见图5-5）。当进程引用一个不在物理页帧上的虚拟地址时，会导致系统产生一个页错误并为之在物理内存中分配一个页帧。<br>​<br>​        某些时候我们不得不面对必须去替换某些页面到交换磁盘的情况，那么，最适合操作系统替换的页面应该就是在未来最长的一段时间内都不会再次访问的那些页面，使用<strong>最近最少使用算法</strong>（LeastRecentlyUsed），或者LRU页面替换法。<br>​<br>​        当需要某个页帧时，操作系统就使用它维护的循环链表以及引用值来判断哪些页面应该释放其页帧。为了确定这一点，开始遍历链表直到找到一个引用值为0的元素。当遍历每一个页面时，操作系统将页面的引用值从1重设回0。一旦它遇到引用值为0的元素，它就找到了一个自从上次遍历链表以来都没有被系统访问过的页面，因此这个页面就是最近最少使用的页面。那么这个页面就在物理内存中和新的页面置换，新的页面被插入链表中原来页面的位置。如果自从算法上次运行以来，所有的页面都被访问过了，那么操作系统就完整地遍历了一次链表，此时就置换它开始的页面。</p>
+<p><strong>栈（后进先出）和队列（先进先出）就是链表的一种</strong></p>
+<p>栈和队列的一些应用：</p>
+<h5 id="队列"><a href="#队列" class="headerlink" title="队列"></a><strong>队列</strong></h5><p> <strong>事件处理：</strong></p>
+<p>​        在实时系统中，当事件频繁发生时，系统往往并没有完全准备好去处理它们。而队列可以记录事件的信息，并在稍后将发生的事件按接收顺序一一处理。</p>
+<h5 id="栈"><a href="#栈" class="headerlink" title="栈"></a><strong>栈</strong></h5><p><strong>c函数的调用</strong>：</p>
+<p>​        当在C程序中调用一个函数时，一个包含调用信息的活动记录被压入一个栈中，这个栈称为程序栈。当此函数结束时，它的活动记录会从程序栈中弹出。栈是记录函数调用过程的完美模型，因为函数的调用过程与函数的返回过程是相反的，这与栈的特性相吻合。</p>
+<h5 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a><strong>哈希表</strong></h5><p>​        支持一种最有效的检索方法：散列。从根本上来说，一个哈希表包含一个数组，通过特殊的索引值（键）来访问数组中的元素。哈希表的主要思想是通过一个哈希函数，在所有可能的键与槽位之间建立一张映射表。哈希函数每次接受一个键将返回与键相对应的哈希编码或哈希值。键的数据类型可能多种多样，但哈希值的类型只能是整型。</p>
+<p>​        <strong>链式哈希表</strong>从根本上来说是由一组链表构成。每个链表都可以看做一个“桶”，我们将所有的元素通过散列的方式放到具体的不同的桶中（见图8-1）。插入元素时，首先将其键传入一个哈希函数（该过程称为哈希键），函数通过散列的方式告知元素属于哪个“桶”，然后在相应的链表头插入元素。查找或删除元素时，用同样的方式先找到元素的“桶”，然后遍历相应的链表，直到发现我们想要查找的元素。</p>
+<h6 id="选择哈希函数"><a href="#选择哈希函数" class="headerlink" title="选择哈希函数"></a>选择哈希函数</h6><p>取余法</p>
+<p>h（k）=k mod m 或者乘法</p>
+<p><img src="/2020/02/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/001.png" alt></p>
+<p>​        链式哈希表是一种用来实现符号表的好方法，因为除了它能高效地存放和检索信息之外，事实上它还能用来存储无限量的数据。为了能够更加有效地管理程序中的符号信息，编译器通常使用一种叫做符号表的数据结构。</p>
+<h6 id="开地址哈希表的描述（数组构成）"><a href="#开地址哈希表的描述（数组构成）" class="headerlink" title="开地址哈希表的描述（数组构成）"></a><strong>开地址哈希表的描述（数组构成）</strong></h6><p>​        在开地址哈希表中，元素存放在表本身中。这种特性对于某些依赖于固定大小表的应用来说非常有用。在开地址哈希表中解决冲突的方法就是探查这个表，直到找到一个可以放置元素的槽。线性探查的优点是简单，而且它对m没有限制，这样就可以保证所有的槽位最终都可能探查到。这种过度的探查会降低表的性能。</p>
+<p>​        双散列最有效地探查开地址哈希表的方法之一，就是通过计算两个辅助哈希函数哈希编码的和来得到哈希编码。双散列的优点是，它能够在表中探查并产生较好的元素分布（见图8-3）。其缺点是，必须限制m的值，这样才能保证在一系列探查中访问表中所有槽之后才会再次探查任何槽。</p>
+<h5 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a><strong>二叉树</strong></h5><p>​        二叉树是一种将结点按照层次结构组织起来的数据结构，每个结点最多只有两个与它直接相关联的子结点。二叉树中的每一个结点都包含3部分：一个数据成员和两个左右指针。通过这种3个成员的结构体，将每个结点的左右指针分别指向该结点的子结点，以此来构建一棵二叉树。</p>
+<p>​        如果满足树的所有叶子结点都在同一层上，或者所有叶子结点都在最后两层上，且倒数第二层是满的，则这棵树是平衡的。</p>
+<h6 id="4种周游算法"><a href="#4种周游算法" class="headerlink" title="4种周游算法"></a>4种周游算法</h6><ol>
+<li>先序遍历：根左右</li>
+<li>中序遍历：左根右</li>
+<li>后序遍历：左右根</li>
+<li>层遍历：首先访问树的根，然后依次向下层处理，按照从左到右的顺序访问每层的结点。</li>
+</ol>
+<h6 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h6><p>​        二叉搜索树是由二叉树组成的专用于查找和搜索目的的高效数据结构，因为在最坏的情况下，只需要查找一个分支上的数据就可以了，而不用检索每一个数据。因此，查找操作的复杂度是O（lgn），这里n代表树中的结点个数。</p>
+<h5 id="堆"><a href="#堆" class="headerlink" title="堆"></a><strong>堆</strong></h5><p>​        是一棵二叉树，通常其子结点存储的值比父结点的值小。所以，根结点是树中最大的结点。成为了我最大值堆。子节点比父节点大的，根节点最小，成为最小值堆。</p>
+<h5 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a><strong>优先队列</strong></h5><p>​        优先队列将数据按照优先级顺序排列。一个优先队列由许多有序的元素构成，所以优先级最高的元素可以有效而快速地确定。</p>
+<p>​        最常用而简单的方法就是维护一个有序数据集。在这个有序数据集中，优先级最高的元素位于数据集的头部。然而，插入或提取元素之后必须重新排列数据集，这是一个复杂度为O（n）的操作（n为数据集元素的个数）。因此，更好的方法就用一个局部有序的堆来实现优先队列。插入或提取数据之后重新排列堆的复杂度仅为O（lgn）。</p>
+<p>应用：包裹分拣</p>
+<p>​        优先队列是用来管理包裹的最佳方法，因为某些场合，我们只关心下一个优先级最高的包裹是哪一个。这样，可以避免维护包裹完全有序的系统开销。</p>
+<h5 id="图"><a href="#图" class="headerlink" title="图"></a><strong>图</strong></h5><p>​        一种灵活的数据结构，一般作为一种模型用来定义对象之间的关联或联系。图由两种类型的元素组成：顶点和边。顶点代表对象，边则建立起对象之间的关系或关联。</p>
+<p>​        我们主要通过邻接表链表结构来表示图。链表中的每个结构体都包含两个成员：一个顶点以及与该顶点相邻接的一个顶点集合。图中的两个重要关系是邻接和关联。顶点的入度指的是以该顶点为终点的边的数目。而顶点的出度指的是以该顶点为起点的边的数目。在无向图中，顶点的度就是与该顶点相关联的边的数目。</p>
+<p>​        没有重复顶点的路径称为简单路径。环是指路径包含相同的顶点两次或两次以上。如果它的每个顶点都能通过某条路径到达其他顶点，那么我们称它为连通的。如果移除某个顶点将使得图或某分支失去连通性，则称该顶点为关结点。如果移除某条边会使得图失去连通性，则称该边为桥。</p>
+<h6 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h6><p>​        广度优先搜索在进一步探索图中的顶点之前先访问当前顶点的所有邻接结点。</p>
+<p>常用来解决最小生成树以及最短路径问题</p>
+<h6 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h6><p>​        深度优先搜索在搜索过程中每当访问到某个顶点后，需要递归地访问此顶点的所有未访问过的相邻顶点。因而，这种搜索将尽可能深地持续探索，直到无法继续为止。</p>
+<p>​        应用环检测以及拓扑排序。</p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TCP/IP</title>
+    <url>/2020/02/22/TCP-IP/</url>
+    <content><![CDATA[<h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><p><img src="/2020/02/22/TCP-IP/001.png" alt></p>
+<p>Open System Interconnect开放系统互连参考模型</p>
+<a id="more"></a>
+
+<p> <img src="/2020/02/22/TCP-IP/002.png" alt></p>
+<h5 id="网络中传输的数据包由两部分组成："><a href="#网络中传输的数据包由两部分组成：" class="headerlink" title="网络中传输的数据包由两部分组成："></a><strong>网络中传输的数据包由两部分组成</strong>：</h5><p>一部分是协议所要用到的首部，另一部分是上一层传过 来的数据。包首部就像协议的脸。</p>
+<h5 id="不同层结构的地址："><a href="#不同层结构的地址：" class="headerlink" title="不同层结构的地址："></a><strong>不同层结构的地址：</strong></h5><ul>
+<li>传输层的地址：端口号   </li>
+</ul>
+<p>端口号用来识别同一台计算机中进行通信的不同应用程序。因</p>
+<p>此，它也被称为程序地址。</p>
+<ul>
+<li>网络层 ：ip地址</li>
+</ul>
+<p>ip地址来识别 TCP/IP 网络中互连的主机和路由器。</p>
+<ul>
+<li>数据链路层：MAC地址</li>
+</ul>
+<p>MAC地址识别同一链路中不同 的计算机</p>
+<p> <img src="/2020/02/22/TCP-IP/003.png" alt></p>
+<p> <img src="/2020/02/22/TCP-IP/004.png" alt></p>
+<p>UDP 常用于一下几个方面：</p>
+<p>1.包总量较少的通信（DNS、SNMP等）；</p>
+<p>2.视频、音频等多媒体通信（即时通信）；</p>
+<p>3.限定于 LAN 等特定网络中的应用通信；</p>
+<p>4.广播通信（广播、多播）。</p>
+<h4 id="三次握手（建立连接）"><a href="#三次握手（建立连接）" class="headerlink" title="三次握手（建立连接）"></a><strong>三次握手（建立连接）</strong></h4><p><img src="/2020/02/22/TCP-IP/005.png" alt></p>
+<p>1.第一次握手：</p>
+<p>​    客户端将标志位SYN（SYN：同步序列编号）置为1，随机产生一个值seq=J，并将该数据包发送给服务器端，客户端进入SYN_SENT状态，等待服务器端确认。</p>
+<p>2.第二次握手：</p>
+<p>​    服务器端收到数据包后由标志位SYN=1知道客户端请求建立连接，服务器端将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该数据包发送给客户端以确认连接请求，服务器端进入SYN_RCVD状态。</p>
+<p>3.第三次握手：</p>
+<p>​    客户端收到确认后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给服务器端，服务器端检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，客户端和服务器端进入ESTABLISHED（TCP连接成功）状态，完成三次握手，随后客户端与服务器端之间可以开始传输数据了。</p>
+<p>问：三次握手中，为什么客户机最后还要再向服务器发送一次确认呢？</p>
+<p>答：这是为了防止已失效的连接请求报文段突然又传到了服务器。所谓“已失效的连接请求报文段”是这样产生的。考虑一种正常的情况，客户机发出连接请求，但因为连接请求报文丢失而未收到确认。于是客户机再重传了一次连接请求，后来收到了确认，建立了连接。数据传输完后，就释放了连接。客户机共发送了两个连接请求报文段，其中第一个丢失，第二个到达了服务器，没有所谓的“已失效的连接请求报文段”。</p>
+<p>　　但是如果出现了一种异常情况，即客户机发出的第一个报文段并没有丢失，而是在某个节点上长时间滞留了，直至客户机向服务器发送了第二个报文段并且已经完成数据传输释放了连接，此时，第一个报文到达服务器后会被误以为是客户机重新发起的一次连接请求，实质上是一个早已失效的连接请求。如果没有第三次握手，那么这个连接就建立了，但是客户机并不会向服务器发送任何请求，这样连接就会一直持续，白白的消耗网络资源。</p>
+<h4 id="四次挥手（断开连接）"><a href="#四次挥手（断开连接）" class="headerlink" title="四次挥手（断开连接）"></a><strong>四次挥手（断开连接）</strong></h4><ul>
+<li>一方发起一方接受</li>
+</ul>
+<p><img src="/2020/02/22/TCP-IP/006.png" alt></p>
+<p>中断连接端可以是客户端，也可以是服务器端。</p>
+<p>1.第一次挥手：</p>
+<p>​      客户端发送一个FIN=M，用来关闭客户端到服务器端的数据传送，客户端进入FIN_WAIT_1状态。意思是说”我客户端没有数据要发给你了”，但是如果你服务器端还有数据没有发送完成，则不必急着关闭连接，可以继续发送数据。</p>
+<p>2.第二次挥手：</p>
+<p>​       服务器端收到FIN后，先发送ack=M+1，告诉客户端，你的请求我收到了，但是我还没准备好，请继续你等我的消息。这个时候客户端就进入FIN_WAIT_2状态，继续等待服务器端的FIN报文。</p>
+<p>3.第三次挥手：</p>
+<p>​      当服务器端确定数据已发送完成，则向客户端发送FIN=N报文，告诉客户端，好了，我这边数据发完了，准备好关闭连接了。服务器端进入LAST_ACK状</p>
+<p>态。</p>
+<p>4.第四次挥手：</p>
+<p>​       客户端收到FIN=N报文后，就知道可以关闭连接了，但是他还是不相信网络，怕服务器端不知道要关闭，所以发送ack=N+1后进入TIME_WAIT状态，如果Server端没有收到ACK则可以重传。服务器端收到ACK后，就知道可以断开连接了。客户端等待了2MSL（最大报文生存时间）后依然没有收到回复，则证明服务器端已正常关闭，那好，我客户端也可以关闭连接了。最终完成了四次挥手。</p>
+<ul>
+<li>同时关闭</li>
+</ul>
+<p><img src="/2020/02/22/TCP-IP/007.png" alt></p>
+<p>问：为什么客户机发送完最后一个数据后要在TIME-WAIT状态等待 2MSL（四分钟）的时间呢？</p>
+<p>​        答：第一：为了保证客户机最后发送的那个ACK报文段能够到达服务器。这个ACK报文段可能会丢失。因而使处在LAST-ACK状态的B收不到对已发送的FIN＋ACK报文段的确认。服务器会超时重传这个FIN＋ACK报文段，而客户机就能在2MSL时间内收到这个重传的FIN+ACK报文段。接着客户机重传一次确认，重新启动2MSL计时器，最后客户机和服务器都可以进入到CLOSED（关闭）状态。如果没有2MSL等待时间，那么就无法收到重传的FIN+ ACK包，无法进入正常的CLOSED状态。</p>
+<p>​    第二，防止“已失效的连接请求报文段”出现在本连接中。客户机在发送完最后一个ACK报文段，再经过时间2MSL，就可以使本连接持续的时间内所产生的报文段都从网络中消失。这样就可以使下一个新的连接中不会出现这种旧的连接请求报文段。</p>
+<p>问：为什么建立连接是三次握手，而关闭连接却是四次挥手呢？</p>
+<pre><code>这是因为服务端在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。而关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方也未必全部数据都发送给对方了，所以己方可以立即close，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送。</code></pre><h5 id="序列号与确认应答提高可靠性"><a href="#序列号与确认应答提高可靠性" class="headerlink" title="序列号与确认应答提高可靠性"></a><strong>序列号与确认应答提高可靠性</strong></h5><p>​    当发送端的数据到达接收主机时，接收端主机会返回一个已收到消息的通知。这个消息叫做<strong>确认应答</strong>（ACK）。当发送端将数据发出之后会等待对端的确认应答。如果有确认应答，说明数据已经成功到达对端。在一定时间内没有等待到确认应答，发送端就可以认为数据已经丢失，并进行重发。由此，即使产生了丢包，仍然能够保证数据能够到达对端，实现可靠传输。</p>
+<p>​    <strong>序列号</strong>是按照顺序给发送数据的每一个字节（8位字节）都标上号码的编号。接收端查询接收数据 TCP 首部中的序列号和数据的长度，将自己下一步应该接收的序列号作为确认应答返送回去。通过序列号和确认应答号，TCP 能够识别是否已经接收数据，又能够判断是否需要接收，从而实现可靠传输。</p>
+<h5 id="重发超时的确定"><a href="#重发超时的确定" class="headerlink" title="重发超时的确定"></a><strong>重发超时的确定</strong></h5><p>​    重发超时是指在重发数据之前，等待确认应答到来的那个特定时间间隔。如果超过这个时间仍未收到确认应答，发送端将进行数据重发。每次发包时都会计算往返时间及其偏差。将这个往返时间和偏差时间相加，重发超时的时间就是比这个总和要稍大一点的值（0.5秒的倍数）。数据被重发之后若还是收不到确认应答，则进行再次发送。此时，等待确认应答的时 间将会以2倍、4倍的指数函数延长</p>
+<p>​    数据也不会被无限的、反复地重发。达到一定重发次数之后，如果仍没有任何确认应答返回，就会判断为网络或对端主机发生了异常，强制关闭连接。并且通知应用通信异常强行终止。</p>
+<h5 id="MSS-最大报文段长度）"><a href="#MSS-最大报文段长度）" class="headerlink" title="MSS(最大报文段长度）"></a>MSS(最大报文段长度）</h5><p>TCP 在传送大量数据时，是以 MSS 的大小将数据进行分割发送。进行重发时也是以MSS 为单位。</p>
+<p>MSS 在三次握手的时候，在两端主机之间被计算得出。</p>
+<p>最理想的情况是，最大段消息长度正好是 IP 中不会被分片处理的最大段数据长度。</p>
+<h5 id="利用窗口控制提高速度"><a href="#利用窗口控制提高速度" class="headerlink" title="利用窗口控制提高速度"></a><strong>利用窗口控制提高速度</strong></h5><p>​    TCP 以1个段为单位，每发送一个段进行一次确认应答的处理。这样的传输方式有一个 缺点，就是包的往返时间越长通信性能就越低。</p>
+<p>​    窗口大小就是指无需等待确认应答而可以继续发送数据的最大值。这个机制实现了使用大量的缓冲区，通过对多个段同时进行确认应答的功能。</p>
+<p>​    收到确认应答的情况下，将窗口滑动到确认应答中的序列号的位置。这样可以顺序地 将多个段同时发送提高通信性能。这种机制也别称为<strong>滑动窗口控制</strong>。</p>
+<p>​    某个报文段丢失的情况。接收主机如果收到一个自己应该接收的序列号以外的数据时，会针对当前为止收到数据返回确认应答。而发送端主机如果连续3次收到同一个确认应答，就会将其对应的数据进行重发。这种机制比之前提到的超时管理更加高效，因此也被称为高速重发控制。</p>
+<h4 id="网络层中的-IP-协议"><a href="#网络层中的-IP-协议" class="headerlink" title="网络层中的 IP 协议"></a><strong>网络层中的 IP 协议</strong></h4><p>​    IP（IPv4、IPv6）相当于 OSI 参考模型中的第3层——网络层。网络层的主要作用是“实现终端节点之间的通信”。这种终端节点之间的通信也叫“点对点通信”。IP 大致分为三大作用模块，它们是 IP 寻址、路由（最终节点为止的转发）以及 IP 分包与组包。</p>
+<h5 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a><strong>ip</strong>地址</h5><p>​    IP 地址用于在“连接到网络 中的所有主机中识别出进行通信的目标地址”在 TCP/IP 通信中所有主机或路 由器必须设定自己的 IP 地址。</p>
+<p>​    IP 地址（IPv4 地址）由32位正整数来表示。IP 地址在计算机内部以二进制方式被处理。然而，由于我们并不习惯于采用二进制方式，我们将32位的 IP 地址以每8位为一 组，分成4组，每组以 “.” 隔开，再将每组数转换成十进制数。 </p>
+<h5 id="IP-地址的分类"><a href="#IP-地址的分类" class="headerlink" title="IP 地址的分类"></a><strong>IP 地址的分类</strong></h5><p>​         IP 地址分为四个级别，分别为A类、B类、C类、D类。它根据 IP 地址中从第 1 位到 第 4 位的比特列对其网络标识和主机标识进行区分。第 4 位的比特列对其网络标识和主机标识进行区分。</p>
+<p> A 类 IP 地址是首位以 “0” 开头的地址。从第 1 位到第 8 位是它的网络标识。0.0.0.0~127.0.0.0 是 A 类的网络地址。A 类地址的后 24 位相当于主机标识。因此，一个网段内可容纳的主机地址上限为16,777,214个。</p>
+<p> B 类 IP 地址是前两位 “10” 的地址。从第 1 位到第 16 位是它的网络标识。128.0.0.0~191.255.0.0是 B 类的网络地址。B 类地址的后 16 位相当于 主机标识。因此，一个网段内可容纳的主机地址上限为65,534个。、</p>
+<p> C 类 IP 地址是前三位为 “110” 的地址。从第 1 位到第 24 位是它的网络标识。192.0.0.0~223.255.255.0 是 C 类的网络地址。C 类地址的后 8 位 相当于主机标识。因此，一个网段内可容纳的主机地址上限为254个。</p>
+<p>D 类 IP 地址是前四位为 “1110” 的地址。从第 1 位到第 32 位是它的网络标识。224.0.0.0~239.255.255.255 是 D 类的网络地址。D 类地址没有主机标识，常用于多播。</p>
+<p>​        在分配 IP 地址时关于主机标识有一点需要注意。即要用比特位表示主机地址时，不可以全部为 0 或全部为 1。因为全部为 0 只有在表示对应的网络地址或 IP 地址不可以获知的情况下才使用。而全部为 1 的主机通常作为广播地址。因此，在分配过程中，应该去掉这两种情况。这也是为什么 C 类地址每个网段最多只能有 254（ 28- 2 =254）个主机地址的原因。</p>
+<h5 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a><strong>子网掩码</strong></h5><p>​        子网掩码用二进制方式表示的话，也是一个 32 位的数字。它对应 IP 地址网络标识部 分的位全部为 “1”，对应 IP 地址主机标识的部分则全部为 “0”。由此，一个 IP 地址可以不再受限于自己的类别，而是可以用这样的子网掩码自由地定位自己的网络标识长度。子网掩码必须是 IP 地址的首位开始连续的 “1”。</p>
+<h5 id="ip包"><a href="#ip包" class="headerlink" title="ip包"></a>ip包</h5><p><img src="/2020/02/22/TCP-IP/008.png" alt></p>
+<p>​        T T L（t i m e - t o - l i v e）生存时间字段设置了数据报可以经过的最多路由器数。它指定了数据 报的生存时间。T T L的初始值由源主机设置（通常为 3 2或6 4），一旦经过一个处理它的路由器， 它的值就减去 1。当该字段的值为 0时，数据报就被丢弃，并发送 I C M P报文通知源主机。</p>
+<h5 id="路由"><a href="#路由" class="headerlink" title="路由"></a><strong>路由</strong></h5><p>​        仅有 IP 地址还不足 以实现将数据包发送到对端目标地址，在数据发送过程中还需要路由控制表。该路由控制表的形成方式有两种：一种是管理员手动设置，另一种是路由器与其他路 由器相互交换信息时自动刷新。前者也叫做静态路由控制，而后者叫做动态路由控制。</p>
+<p>​        IP 地址的网络地址部分用于进行路由控制。 路由控制表中记录着网络地址与下一步应该发送至路由器的地址。 在发送 IP 包时，首先要确定 IP 包首部中的目标地址，再从路由控制表中找到与该地址具有相同网络地址的记录，根据该记录将 IP 包转发给相应的下一个路由器。</p>
+<h5 id="IP-分包与组包"><a href="#IP-分包与组包" class="headerlink" title="IP 分包与组包"></a><strong>IP 分包与组包</strong></h5><p>每种数据链路的最大传输单元（MTU）都不尽相同，因为每个不同类型的数据链路的使 用目的不同。经过分片之后的 IP 数据报在被重组的时候，只能由目标主机进行。路由器虽然做分片但不会进行重组。</p>
+<h5 id="路径MTU发现"><a href="#路径MTU发现" class="headerlink" title="路径MTU发现"></a><strong>路径MTU发现</strong></h5><p>如果两台主机之间的通信要通过多个网络，那么每个网络的链路层就可能有不同的MTU。两台通信主机路径中的最小MTU。它被称作路径MTU(PMTU)。进行路径 MTU 发现，就可以避免在中途的路由器上进行分片处理，也可以在 TCP 中发送更大的包。</p>
+<h4 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a><strong>IPv6</strong></h4><p>​         IPv6（IP version 6）是为了根本解决 IPv4 地址耗尽的问题而被标准化的网际协议。 IPv4 的地址长度为 4 个 8 位字节，即 32 比特。而 IPv6 的地址长度则是原来的 4 倍，即 128 比特，一般写成 8 个 16 位字节。 </p>
+<h5 id="IPv6-的特点"><a href="#IPv6-的特点" class="headerlink" title="IPv6 的特点"></a>IPv6 的特点</h5><ol>
+<li>IP 得知的扩大与路由控制表的聚合。</li>
+<li>包首部长度采用固定的值（40字节），不再采用首部检验码。简化首部结构，减轻路由器负担。路由器不再做分片处理。</li>
+<li>支持即插即用功能。即使没有DHCP服务器也可以实现自动分配 IP 地址。</li>
+<li>采用认证与加密功能。应对伪造 IP 地址的网络安全功能以及防止线路窃听的功能。</li>
+<li>多播、Mobile IP 成为扩展功能。</li>
+</ol>
+<h5 id="Ipv6地址"><a href="#Ipv6地址" class="headerlink" title="Ipv6地址"></a>Ipv6地址</h5><p>​    一般人们将 128 比特 IP 地址以每 16 比特为一组，每组用冒号（“：”）隔开进行标 记。 而且如果出现连续的 0 时还可以将这些 0 省略，并用两个冒号（“：：”）隔开。但 是，一个 IP 地址中只允许出现一次两个连续的冒号。IPv6 分段处理 IPv6 的分片处理只在作为起点的发送端主机上进行，路由器不参与分片。 IPv6 中最小 MTU 为 1280 字节。</p>
+<h5 id="地址解析协议-ARP"><a href="#地址解析协议-ARP" class="headerlink" title="地址解析协议 ARP"></a><strong>地址解析协议 ARP</strong></h5><p>•网络层实现主机之间的通信，而链路层实现具体每段链路之间的通信。因此在通信过程中，IP 数据报的源地址和目的地址始终不变，而 MAC 地址随着链路的改变而改变。ARP 实现由 IP 地址得到 MAC 地址。每个主机都有一个 ARP 高速缓存，里面有本局域网上的各主机和路由器的 IP 地址到 MAC 地址的映射表。</p>
+<p>如果主机 A 知道主机 B 的 IP 地址，但是 ARP 高速缓存中没有该 IP 地址到 MAC 地址的映射，此时主机 A 通过广播的方式发送 ARP 请求分组，主机 B 收到该请求后会发送 ARP 响应分组给主机 A 告知其 MAC 地址，随后主机 A 向其高速缓存中写入主机 B 的 IP 地址到 MAC 地址的映射。</p>
+<h5 id="网际控制报文协议-ICMP"><a href="#网际控制报文协议-ICMP" class="headerlink" title="网际控制报文协议 ICMP"></a><strong>网际控制报文协议 ICMP</strong></h5><p>iCMP经常被认为是 I P层的一个组成部分。它传递差错报文以及其他需要注意的信息。当传送IP数据包发生错误比如主机不可达，路由不可达等等，ICMP协议将会把错误信息封包，然后传送回给主机。给主机一个处理错误的机会，这 也就是为什么说建立在IP层以上的协议是可能做到安全的原因。 </p>
+<h5 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a><strong>DNS</strong></h5><p>我们平常在访问某个网站时不适用 IP 地址，而是用一串由罗马字和点号组成的字符 串。而一般用户在使用 TCP/IP 进行通信时也不使用 IP 地址。域名系统（Domain Name System缩写DNS，Domain Name被译为域名）是因特网的一项核心服务，它作为可以将域名和IP地址相互映射的一个分布式数据库，能够使人更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。</p>
+<h5 id="DHCP（动态主机配置协议）"><a href="#DHCP（动态主机配置协议）" class="headerlink" title="DHCP（动态主机配置协议）"></a><strong>DHCP（动态主机配置协议）</strong></h5><p>是一个局域网的网络协议。指的是由服务器控制一段lP地址范围，客户机登录服务器时就可以自动获得服务器分配的lP地址和子网掩码。</p>
+<h5 id="NAT（Network-Address-Translator网络地址转换）"><a href="#NAT（Network-Address-Translator网络地址转换）" class="headerlink" title="NAT（Network Address Translator网络地址转换）"></a><strong>NAT（Network Address Translator网络地址转换）</strong></h5><p>是用于在本地网络中使用私有地址，在连接互 联网时转而使用全局 IP 地址的技术。</p>
+<h5 id="IP-隧道"><a href="#IP-隧道" class="headerlink" title="IP 隧道"></a><strong>IP 隧道</strong></h5><p>IP隧道是指一种可在两网络间用网际协议进行通信的通道。在该通道里，会先封装其他网络协议的数据包，之后再传输信息。实现不同网络环境的通信（例如ipv4和ipv6）</p>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+      <tags>
+        <tag>计算机网络基础</tag>
+        <tag>TCP/IP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>简单错误记录</title>
     <url>/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h1 id="简单错误记录"><a href="#简单错误记录" class="headerlink" title="简单错误记录"></a>简单错误记录</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>开发一个简单错误记录功能小模块，能够记录出错的代码所在的文件名称和行号。</p>
@@ -8,7 +176,7 @@
 <ol>
 <li>记录最多8条错误记录，循环记录（或者说最后只输出最后出现的八条错误记录），对相同的错误记录（净文件名称和行号完全匹配）只记录一条，<strong>错误计数增加；</strong></li>
 <li>超过16个字符的文件名称，只记录文件的最后有效16个字符</li>
-<li>输入的文件可能带路径，记录文件名称不能带路径。<a href="https://www.nowcoder.com/practice/2baa6aba39214d6ea91a2e03dff3fbeb?tpId=37&tqId=21242&tPage=1&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking" target="_blank" rel="noopener">题目出处</a></li>
+<li>输入的文件可能带路径，记录文件名称不能带路径。<a href="https://www.nowcoder.com/practice/2baa6aba39214d6ea91a2e03dff3fbeb?tpId=37&tqId=21242&tPage=1&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking" target="_blank" rel="noopener">题目出处</a><a id="more"></a></li>
 </ol>
 <p><img src="/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/a4.png" alt></p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>根据条件详细判断。</p>
@@ -29,7 +197,7 @@
   <entry>
     <title>识别有效的IP地址和掩码并进行分类统计</title>
     <url>/2020/02/21/%E8%AF%86%E5%88%AB%E6%9C%89%E6%95%88%E7%9A%84IP%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8E%A9%E7%A0%81%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1/</url>
-    <content><![CDATA[<h1 id="识别有效的IP地址和掩码并进行分类统计"><a href="#识别有效的IP地址和掩码并进行分类统计" class="headerlink" title="识别有效的IP地址和掩码并进行分类统计"></a>识别有效的IP地址和掩码并进行分类统计</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>请解析IP地址和对应的掩码，进行分类识别。要求按照A/B/C/D/E类地址归类，不合法的地址和掩码单独归类。</p>
+    <content><![CDATA[<h1 id="识别有效的IP地址和掩码并进行分类统计"><a href="#识别有效的IP地址和掩码并进行分类统计" class="headerlink" title="识别有效的IP地址和掩码并进行分类统计"></a>识别有效的IP地址和掩码并进行分类统计</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>请解析IP地址和对应的掩码，进行分类识别。要求按照A/B/C/D/E类地址归类，不合法的地址和掩码单独归类。<a id="more"></a></p>
 <p>所有的IP地址划分为 A,B,C,D,E五类</p>
 <p>A类地址1.0.0.0~126.255.255.255;</p>
 <p>B类地址128.0.0.0~191.255.255.255;</p>
@@ -62,7 +230,7 @@
   <entry>
     <title>坐标移动</title>
     <url>/2020/02/21/%E5%9D%90%E6%A0%87%E7%A7%BB%E5%8A%A8/</url>
-    <content><![CDATA[<h1 id="坐标移动"><a href="#坐标移动" class="headerlink" title="坐标移动"></a>坐标移动</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>开发一个坐标计算工具， A表示向左移动，D表示向右移动，W表示向上移动，S表示向下移动。从（0,0）点开始移动，从输入字符串里面读取一些坐标，并将最终输入结果输出到输出文件里面。<a href="https://www.nowcoder.com/practice/119bcca3befb405fbe58abe9c532eb29?tpId=37&tqId=21240&tPage=1&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking" target="_blank" rel="noopener">题目出处</a></p>
+    <content><![CDATA[<h1 id="坐标移动"><a href="#坐标移动" class="headerlink" title="坐标移动"></a>坐标移动</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>开发一个坐标计算工具， A表示向左移动，D表示向右移动，W表示向上移动，S表示向下移动。从（0,0）点开始移动，从输入字符串里面读取一些坐标，并将最终输入结果输出到输出文件里面。<a href="https://www.nowcoder.com/practice/119bcca3befb405fbe58abe9c532eb29?tpId=37&tqId=21240&tPage=1&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking" target="_blank" rel="noopener">题目出处</a><a id="more"></a></p>
 <p>输入：</p>
 <p> 合法坐标为A(或者D或者W或者S) + 数字（两位以内）</p>
 <p> 坐标之间以;分隔。</p>
@@ -98,7 +266,7 @@
     <title>字符串合并处理</title>
     <url>/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<h1 id="字符串合并处理"><a href="#字符串合并处理" class="headerlink" title="字符串合并处理"></a>字符串合并处理</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>将输入的两个字符串合并。</p>
-<p>对合并后的字符串进行排序，要求为：下标为奇数的字符和下标为偶数的字符分别从小到大排序。这里的下标意思是字符在字符串中的位置。</p>
+<p>对合并后的字符串进行排序，要求为：下标为奇数的字符和下标为偶数的字符分别从小到大排序。这里的下标意思是字符在字符串中的位置。<a id="more"></a></p>
 <p>对排序后的字符串进行操作，如果字符为‘0’——‘9’或者‘A’——‘F’或者‘a’——‘f’，则对他们所代表的16进制的数进行BIT倒序的操作，并转换为相应的大写字符。如字符为‘4’，为0100b，则翻转后为0010b，也就是2。转换后的字符为‘2’； 如字符为‘7’，为0111b，则翻转后为1110b，也就是e。转换后的字符为大写‘E’。<a href="https://www.nowcoder.com/practice/d3d8e23870584782b3dd48f26cb39c8f?tpId=37&tqId=21253&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a></p>
 <p>举例：输入str1为”dec”，str2为”fab”，合并为“decfab”，分别对“dca”和“efb”进行排序，排序后为“abcedf”，转换后为“5D37BF”</p>
 <p><img src="/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/a5.png" alt></p>
@@ -121,6 +289,8 @@
     <title>查找兄弟单词</title>
     <url>/2020/02/21/%E6%9F%A5%E6%89%BE%E5%85%84%E5%BC%9F%E5%8D%95%E8%AF%8D/</url>
     <content><![CDATA[<h1 id="查找兄弟单词"><a href="#查找兄弟单词" class="headerlink" title="查找兄弟单词"></a>查找兄弟单词</h1><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p><img src="http://uploadfiles.nowcoder.com/images/20151225/60_1451038439514_F3CCDD27D2000E3F9255A7E3E2C48800" alt="img"></p>
+<a id="more"></a>
+
 <p><img src="http://uploadfiles.nowcoder.com/images/20151225/60_1451038452960_156005C5BAF40FF51A327F1C34F2975B" alt="img"></p>
 <p><img src="http://uploadfiles.nowcoder.com/images/20151225/60_1451038463479_799BAD5A3B514F096E69BBC4A7896CD9" alt="img"></p>
 <p><a href="https://www.nowcoder.com/practice/03ba8aeeef73400ca7a37a5f3370fe68?tpId=37&tqId=21250&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a></p>
@@ -142,7 +312,7 @@
   <entry>
     <title>整数与ip地址间的转换</title>
     <url>/2020/02/21/%E6%95%B4%E6%95%B0%E4%B8%8Eip%E5%9C%B0%E5%9D%80%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/</url>
-    <content><![CDATA[<h1 id="整数与ip地址间的转换"><a href="#整数与ip地址间的转换" class="headerlink" title="整数与ip地址间的转换"></a>整数与ip地址间的转换</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>原理：ip地址的每段可以看成是一个0-255的整数，把每段拆分成一个二进制形式组合起来，然后把这个二进制数转变成<br>一个长整数。<br>举例：一个ip地址为10.0.3.193<br>每段数字       相对应的二进制数<br>10          00001010<br>0          00000000<br>3          00000011<br>193         11000001<br>组合起来即为：00001010 00000000 00000011 11000001,转换为10进制数就是：167773121，即该IP地址转换后的数字就是它了。<a href="https://www.nowcoder.com/practice/66ca0e28f90c42a196afd78cc9c496ea?tpId=37&tqId=21256&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a></p>
+    <content><![CDATA[<h1 id="整数与ip地址间的转换"><a href="#整数与ip地址间的转换" class="headerlink" title="整数与ip地址间的转换"></a>整数与ip地址间的转换</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>原理：ip地址的每段可以看成是一个0-255的整数，把每段拆分成一个二进制形式组合起来，然后把这个二进制数转变成一个长整数。<a id="more"></a><br>举例：一个ip地址为10.0.3.193<br>每段数字       相对应的二进制数<br>10          00001010<br>0          00000000<br>3          00000011<br>193         11000001<br>组合起来即为：00001010 00000000 00000011 11000001,转换为10进制数就是：167773121，即该IP地址转换后的数字就是它了。<a href="https://www.nowcoder.com/practice/66ca0e28f90c42a196afd78cc9c496ea?tpId=37&tqId=21256&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a></p>
 <p><img src="/2020/02/21/%E6%95%B4%E6%95%B0%E4%B8%8Eip%E5%9C%B0%E5%9D%80%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/a4.png" alt></p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>录入整数，进制转换，求值</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable : 4996)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bir</span><span class="params">(<span class="keyword">int</span> ip[<span class="number">32</span>], <span class="keyword">int</span> i,<span class="keyword">int</span> flag)</span></span>;              <span class="comment">//将ip地址转化为2进制的函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">longbir</span><span class="params">(<span class="keyword">int</span> ip[<span class="number">32</span>], <span class="keyword">long</span> <span class="keyword">unsigned</span> i)</span></span>;         <span class="comment">//将长整数转化为2进制</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">unbir</span><span class="params">(<span class="keyword">int</span>* ip ,<span class="keyword">int</span> cp)</span></span>;                       <span class="comment">//二进制分段转化为整数</span></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">ips</span><span class="params">(<span class="keyword">int</span> ip[<span class="number">32</span>])</span></span>;                <span class="comment">//二进制转化为长整数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a, b, c, d;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">unsigned</span> cp;</span><br><span class="line">	<span class="keyword">int</span> ip[<span class="number">32</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">	<span class="keyword">int</span> dp[<span class="number">32</span>];</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d.%d.%d.%d"</span>, &amp;a, &amp;b, &amp;c, &amp;d)!=EOF)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lu"</span>, &amp;cp);</span><br><span class="line">		bir(ip, a, <span class="number">1</span>);                         <span class="comment">// 第一段转化为二进制</span></span><br><span class="line">		bir(ip, b, <span class="number">2</span>);                        <span class="comment">//第二段</span></span><br><span class="line">		bir(ip, c, <span class="number">3</span>);                        <span class="comment">//第三段</span></span><br><span class="line">		bir(ip, d, <span class="number">4</span>);                        <span class="comment">//第四段转化为二进制 </span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lu\n"</span>, ips(ip));             <span class="comment">//转化为长整数</span></span><br><span class="line">		longbir(dp, cp);                       /</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d.%d.%d.%d\n"</span>, unbir(dp, <span class="number">1</span>), unbir(dp, <span class="number">2</span>), unbir(dp, <span class="number">3</span>), unbir(dp, <span class="number">4</span>));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bir</span><span class="params">(<span class="keyword">int</span> ip[<span class="number">32</span>], <span class="keyword">int</span> i, <span class="keyword">int</span> flag)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> j = <span class="number">7</span>;</span><br><span class="line">	<span class="keyword">int</span> r,k;</span><br><span class="line">	r = (i % <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">switch</span> (flag)                                   <span class="comment">//分段选择</span></span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:k = j; <span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:k = j+<span class="number">8</span>; <span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">3</span>:k = j+<span class="number">16</span>; <span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">4</span>:k = j+<span class="number">24</span>; <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	ip[k] = r;</span><br><span class="line">		j--;</span><br><span class="line">	<span class="keyword">if</span> (i &gt;= <span class="number">2</span>)</span><br><span class="line">		bir(ip, i / <span class="number">2</span>, flag);</span><br><span class="line">	<span class="keyword">if</span> ((i / <span class="number">2</span>) == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> (j-- &gt;= <span class="number">0</span>)</span><br><span class="line">			ip[--k] = <span class="number">0</span>;</span><br><span class="line">		j = <span class="number">7</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">ips</span><span class="params">(<span class="keyword">int</span> ip[<span class="number">32</span>])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> o = <span class="number">31</span>;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">unsigned</span> num=<span class="number">0</span>,temp;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>,temp=<span class="number">1</span>; i&lt;<span class="number">32</span>; o--,i++)        <span class="comment">//循环将二进制转化为长整数</span></span><br><span class="line">	&#123;</span><br><span class="line">		num += (ip[o] * temp);</span><br><span class="line">		temp *= <span class="number">2</span>;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	o = <span class="number">31</span>;</span><br><span class="line">	<span class="keyword">return</span> num;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">longbir</span><span class="params">(<span class="keyword">int</span> ip[<span class="number">32</span>], <span class="keyword">long</span> <span class="keyword">unsigned</span> i)</span>        <span class="comment">//长整数转为二进制</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> j = <span class="number">31</span>;</span><br><span class="line">	<span class="keyword">int</span> r;</span><br><span class="line">	r = (i % <span class="number">2</span>);</span><br><span class="line">	ip[j] = r;</span><br><span class="line">	j--;</span><br><span class="line">	<span class="keyword">if</span> (i &gt;= <span class="number">2</span>)</span><br><span class="line">		longbir(ip, i / <span class="number">2</span>);</span><br><span class="line">	<span class="keyword">if</span> ((i / <span class="number">2</span>) == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">while</span> (j &gt;= <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ip[j] = <span class="number">0</span>;</span><br><span class="line">			j--;</span><br><span class="line">		&#125;</span><br><span class="line">		j = <span class="number">31</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">unbir</span><span class="params">(<span class="keyword">int</span>* ip, <span class="keyword">int</span> cp)</span>                           <span class="comment">//二进制分段转化为整数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> j = <span class="number">7</span>;</span><br><span class="line">	<span class="keyword">int</span> i, k;</span><br><span class="line">	<span class="keyword">switch</span> (cp)</span><br><span class="line">	&#123;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">1</span>:k = j; <span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">2</span>:k = j + <span class="number">8</span>; <span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">3</span>:k = j + <span class="number">16</span>; <span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> <span class="number">4</span>:k = j + <span class="number">24</span>; <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> num = <span class="number">0</span>, temp;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>, temp = <span class="number">1</span>; i &lt; <span class="number">8</span>; k--, i++)</span><br><span class="line">	&#123;</span><br><span class="line">		num += (ip[k] * temp);</span><br><span class="line">		temp *= <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	j =<span class="number">7</span>;</span><br><span class="line">	<span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -160,7 +330,7 @@
   <entry>
     <title>汽水瓶</title>
     <url>/2020/02/21/%E6%B1%BD%E6%B0%B4%E7%93%B6/</url>
-    <content><![CDATA[<h1 id="汽水瓶"><a href="#汽水瓶" class="headerlink" title="汽水瓶"></a>汽水瓶</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>有这样一道智力题：“某商店规定：三个空汽水瓶可以换一瓶汽水。小张手上有十个空汽水瓶，她最多可以换多少瓶汽水喝？”答案是5瓶，方法如下：先用9个空瓶子换3瓶汽水，喝掉3瓶满的，喝完以后4个空瓶子，用3个再换一瓶，喝掉这瓶满的，这时候剩2个空瓶子。然后你让老板先借给你一瓶汽水，喝掉这瓶满的，喝完以后用3个空瓶子换一瓶满的还给老板。如果小张手上有n个空汽水瓶，最多可以换多少瓶汽水喝？<a href="https://www.nowcoder.com/practice/fe298c55694f4ed39e256170ff2c205f?tpId=37&tqId=21245&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a></p>
+    <content><![CDATA[<h1 id="汽水瓶"><a href="#汽水瓶" class="headerlink" title="汽水瓶"></a>汽水瓶</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>有这样一道智力题：“某商店规定：三个空汽水瓶可以换一瓶汽水。小张手上有十个空汽水瓶，她最多可以换多少瓶汽水喝？”答案是5瓶，方法如下：先用9个空瓶子换3瓶汽水，喝掉3瓶满的，喝完以后4个空瓶子，用3个再换一瓶，喝掉这瓶满的，这时候剩2个空瓶子。然后你让老板先借给你一瓶汽水，喝掉这瓶满的，喝完以后用3个空瓶子换一瓶满的还给老板。如果小张手上有n个空汽水瓶，最多可以换多少瓶汽水喝？<a href="https://www.nowcoder.com/practice/fe298c55694f4ed39e256170ff2c205f?tpId=37&tqId=21245&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a><a id="more"></a></p>
 <p><img src="/2020/02/21/%E6%B1%BD%E6%B0%B4%E7%93%B6/a3.png" alt></p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>函数递归调用</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable : 4996)</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> la;                     <span class="comment">//依次能喝到的数目</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">int</span> sum;                   <span class="comment">//能喝到的总瓶数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">enough</span><span class="params">(<span class="keyword">int</span> i)</span></span>;                <span class="comment">//计算函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>, j;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">10</span>];</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;j)!=EOF)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (j == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span> a[i++] = enough(j);</span><br><span class="line">		la = <span class="number">0</span>;</span><br><span class="line">		sum = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; i; j++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, a[j]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">enough</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> b = <span class="number">0</span>, c = <span class="number">0</span>;</span><br><span class="line">	b = i / <span class="number">3</span>;</span><br><span class="line">	c = i % <span class="number">3</span>;</span><br><span class="line">	<span class="keyword">if</span> (b &gt; <span class="number">0</span>)</span><br><span class="line">		la += b;</span><br><span class="line">	<span class="keyword">if</span> ((b + c) &gt;= <span class="number">3</span>)</span><br><span class="line">		enough(b + c);                        <span class="comment">//递归调用</span></span><br><span class="line">	<span class="keyword">if</span> ((b + c) == <span class="number">2</span>&amp;&amp;sum==<span class="number">0</span>)</span><br><span class="line">		la++;</span><br><span class="line">	sum = la;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -178,7 +348,7 @@
   <entry>
     <title>【中级】密码截取</title>
     <url>/2020/02/21/%E3%80%90%E4%B8%AD%E7%BA%A7%E3%80%91%E5%AF%86%E7%A0%81%E6%88%AA%E5%8F%96/</url>
-    <content><![CDATA[<h1 id="【中级】密码截取"><a href="#【中级】密码截取" class="headerlink" title="【中级】密码截取"></a>【中级】密码截取</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>Catcher是MCA国的情报员，他工作时发现敌国会用一些对称的密码进行通信，比如像这些ABBA，ABA，A，123321，但是他们有时会在开始或结束时加入一些无关的字符以防止别国破解。比如进行下列变化 ABBA-&gt;12ABBA,ABA-&gt;ABAKK,123321-&gt;51233214　。因为截获的串太长了，而且存在多种可能的情况（abaaab可看作是aba,或baaab的加密形式），Cathcer的工作量实在是太大了，他只能向电脑高手求助，你能帮Catcher找出最长的有效密码串吗？<a href="https://www.nowcoder.com/practice/3cd4621963e8454594f00199f4536bb1?tpId=37&tqId=21255&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a></p>
+    <content><![CDATA[<h1 id="【中级】密码截取"><a href="#【中级】密码截取" class="headerlink" title="【中级】密码截取"></a>【中级】密码截取</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>Catcher是MCA国的情报员，他工作时发现敌国会用一些对称的密码进行通信，比如像这些ABBA，ABA，A，123321，但是他们有时会在开始或结束时加入一些无关的字符以防止别国破解。比如进行下列变化 ABBA-&gt;12ABBA,ABA-&gt;ABAKK,123321-&gt;51233214　。因为截获的串太长了，而且存在多种可能的情况（abaaab可看作是aba,或baaab的加密形式），Cathcer的工作量实在是太大了，他只能向电脑高手求助，你能帮Catcher找出最长的有效密码串吗？<a href="https://www.nowcoder.com/practice/3cd4621963e8454594f00199f4536bb1?tpId=37&tqId=21255&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a><a id="more"></a></p>
 <p><img src="/2020/02/21/%E3%80%90%E4%B8%AD%E7%BA%A7%E3%80%91%E5%AF%86%E7%A0%81%E6%88%AA%E5%8F%96/a3.png" alt></p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>把字符串依次截断，倒序前半部分。</p>
 <p>若为ABBA型，则比较倒序后的字符串与截断后的字符串有几位相同。</p>
@@ -194,14 +364,14 @@
       </categories>
       <tags>
         <tag>c语言</tag>
-        <tag>字符串截取</tag>
         <tag>字符串逆序</tag>
+        <tag>字符串截取</tag>
       </tags>
   </entry>
   <entry>
     <title>明明的随机数</title>
     <url>/2020/02/21/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="明明的随机数"><a href="#明明的随机数" class="headerlink" title="明明的随机数"></a>明明的随机数</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据，希望大家能正确处理)。 <a href="https://www.nowcoder.com/practice/3245215fffb84b7b81285493eae92ff0?tpId=37&tqId=21226&tPage=1&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking" target="_blank" rel="noopener">题目出处</a></p>
+    <content><![CDATA[<h1 id="明明的随机数"><a href="#明明的随机数" class="headerlink" title="明明的随机数"></a>明明的随机数</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据，希望大家能正确处理)。 <a href="https://www.nowcoder.com/practice/3245215fffb84b7b81285493eae92ff0?tpId=37&tqId=21226&tPage=1&rp=&ru=/ta/huawei&qru=/ta/huawei/question-ranking" target="_blank" rel="noopener">题目出处</a><a id="more"></a></p>
 <p><img src="/2020/02/21/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/a6.png" alt></p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>去重和排序。</p>
 <p>去重可以通过修改重复值无关量实现，也可以去除独立值到一个数组中。</p>
@@ -222,11 +392,10 @@
     <title>单词倒排</title>
     <url>/2020/02/21/%E5%8D%95%E8%AF%8D%E5%80%92%E6%8E%92/</url>
     <content><![CDATA[<h1 id="【中级】单词倒排（C语言）"><a href="#【中级】单词倒排（C语言）" class="headerlink" title="【中级】单词倒排（C语言）"></a>【中级】单词倒排（C语言）</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>对字符串中的所有单词进行倒排。</p>
-<p>说明：</p>
 <p>1、每个单词是以26个大写或小写英文字母构成；</p>
 <p>2、非构成单词的字符均视为单词间隔符；</p>
 <p>3、要求倒排后的单词间隔符以一个空格表示；如果原字符串中相邻单词间有多个间隔符时，倒排转换后也只允许出现一个空格间隔符；</p>
-<p>4、每个单词最长20个字母；<a href="https://www.nowcoder.com/practice/81544a4989df4109b33c2d65037c5836?tpId=37&tqId=21254&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a></p>
+<p>4、每个单词最长20个字母；<a href="https://www.nowcoder.com/practice/81544a4989df4109b33c2d65037c5836?tpId=37&tqId=21254&tPage=2&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a><a id="more"></a></p>
 <p><img src="/2020/02/21/%E5%8D%95%E8%AF%8D%E5%80%92%E6%8E%92/a2.png" alt></p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先把输入的字符串逆序，然后再去检测单词，将单词逆序。是句子逆序的进阶版，注意开头结尾连续特殊的情况（句子倒排没有）</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">flashback</span><span class="params">(<span class="keyword">char</span> a[], <span class="keyword">int</span> j, <span class="keyword">int</span> p)</span></span>;    <span class="comment">//倒序函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a[<span class="number">10000</span>];</span><br><span class="line">    <span class="keyword">int</span> j, i, k, <span class="built_in">end</span>;</span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line">    gets(a);</span><br><span class="line">    <span class="built_in">end</span> = <span class="built_in">strlen</span>(a)<span class="number">-1</span> ;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">end</span>+<span class="number">1</span>; i++)                   <span class="comment">//先处理特殊符号</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">isalpha</span>(a[i]))                      <span class="comment">//非字母将第一个符号替换为‘ ’</span></span><br><span class="line">        &#123;</span><br><span class="line">            a[i] = <span class="string">' '</span>;</span><br><span class="line">            j = <span class="number">0</span>;                               <span class="comment">//j用来记录连续特殊带符号的个数</span></span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">0</span>)                          <span class="comment">//如果是首字符   删除他</span></span><br><span class="line">            &#123; k = i;</span><br><span class="line">            <span class="keyword">for</span> (; k &lt;= <span class="built_in">end</span> - <span class="number">1</span>; k++)</span><br><span class="line"></span><br><span class="line">                a[k] = a[k + <span class="number">1</span>];</span><br><span class="line">            a[k] = <span class="string">'\0'</span>; </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> k = i+<span class="number">1</span>;                       <span class="comment">//k为特殊符号后的下一字符</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">while</span> (!<span class="built_in">isalpha</span>(a[i])&amp;&amp;i&lt;(<span class="built_in">end</span>+<span class="number">1</span>))   </span><br><span class="line">            &#123;</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            j--;</span><br><span class="line">            <span class="keyword">if</span> (i == (<span class="built_in">end</span>+<span class="number">1</span>) )                  <span class="comment">//如果特殊字符结尾，截断字符串</span></span><br><span class="line">                a[k - <span class="number">1</span>] = <span class="string">'\0'</span>;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (; k &lt;= <span class="built_in">end</span> - j; k++)       <span class="comment">//通过搬移数组去除掉连续的特殊字符</span></span><br><span class="line"></span><br><span class="line">                    a[k] = a[k + j];</span><br><span class="line">                a[k] = <span class="string">'\0'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">           </span><br><span class="line">            <span class="built_in">end</span>=<span class="built_in">strlen</span>(a)<span class="number">-1</span>;                      </span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line">    flashback(a, <span class="number">0</span>, <span class="built_in">end</span>);      <span class="comment">//句子倒序</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">end</span>; i++)</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">isspace</span>(a[i]) &amp;&amp; i &lt; <span class="built_in">end</span>) &#123;</span><br><span class="line">            j = i++;</span><br><span class="line">            <span class="keyword">while</span> (!<span class="built_in">isspace</span>(a[i]) &amp;&amp; i &lt; <span class="built_in">end</span>)</span><br><span class="line">                i++;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; <span class="built_in">end</span>)  k = --i;</span><br><span class="line">            <span class="keyword">else</span> k = <span class="built_in">end</span>;</span><br><span class="line">            flashback(a, j, k);</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="built_in">puts</span>(a);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">flashback</span><span class="params">(<span class="keyword">char</span> a[], <span class="keyword">int</span> j, <span class="keyword">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line">    <span class="keyword">for</span> (i = j; i &lt; p; i++, p--)</span><br><span class="line">    &#123;</span><br><span class="line">        temp = a[p];</span><br><span class="line">        a[p] = a[i];</span><br><span class="line">        a[i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -245,7 +414,7 @@
   <entry>
     <title>句子逆序</title>
     <url>/2020/02/21/%E5%8F%A5%E5%AD%90%E9%80%86%E5%BA%8F/</url>
-    <content><![CDATA[<h1 id="句子逆序（C语言）"><a href="#句子逆序（C语言）" class="headerlink" title="句子逆序（C语言）"></a>句子逆序（C语言）</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>将一个英文语句以单词为单位逆序排放。例如“I am a boy”，逆序排放后为“boy a am I”<br>所有单词之间用一个空格隔开，语句中除了英文字母外，不再包含其他字符。<a href="https://www.nowcoder.com/practice/48b3cb4e3c694d9da5526e6255bb73c3?tpId=37&tqId=21236&tPage=1&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a></p>
+    <content><![CDATA[<h1 id="句子逆序（C语言）"><a href="#句子逆序（C语言）" class="headerlink" title="句子逆序（C语言）"></a>句子逆序（C语言）</h1><h4 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h4><p>将一个英文语句以单词为单位逆序排放。例如“I am a boy”，逆序排放后为“boy a am I”<br>所有单词之间用一个空格隔开，语句中除了英文字母外，不再包含其他字符。<a href="https://www.nowcoder.com/practice/48b3cb4e3c694d9da5526e6255bb73c3?tpId=37&tqId=21236&tPage=1&rp=&ru=%2Fta%2Fhuawei&qru=%2Fta%2Fhuawei%2Fquestion-ranking" target="_blank" rel="noopener">题目出处</a><a id="more"></a></p>
 <p><img src="/2020/02/21/%E5%8F%A5%E5%AD%90%E9%80%86%E5%BA%8F/QQ.png" alt></p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先把输入的字符串逆序，然后再去检测单词，将单词逆序。</p>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">flashback</span><span class="params">(<span class="keyword">char</span> a[], <span class="keyword">int</span> j,<span class="keyword">int</span> p)</span></span>;   <span class="comment">//倒序函数             </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a[<span class="number">10000</span>];                </span><br><span class="line">    <span class="keyword">int</span> j,i,k, <span class="built_in">end</span>;</span><br><span class="line">    <span class="keyword">char</span> temp;</span><br><span class="line">    gets(a);</span><br><span class="line">    <span class="built_in">end</span> = <span class="built_in">strlen</span>(a) - <span class="number">1</span>;</span><br><span class="line">    flashback(a,<span class="number">0</span>, <span class="built_in">end</span>);     <span class="comment">//句子倒序</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">end</span>; i++)</span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">isspace</span>(a[i])&amp;&amp;i&lt;<span class="built_in">end</span>) &#123;       <span class="comment">//判断单词的开头，记录开始位置j</span></span><br><span class="line">            j = i++;</span><br><span class="line">            <span class="keyword">while</span> (!<span class="built_in">isspace</span>(a[i])&amp;&amp;i&lt;<span class="built_in">end</span>)</span><br><span class="line">                i++;                     <span class="comment">//找到单词的结尾</span></span><br><span class="line">            <span class="keyword">if</span> (i &lt; <span class="built_in">end</span>)  k = --i;       <span class="comment">//记录结尾位置k</span></span><br><span class="line">            <span class="keyword">else</span> k = <span class="built_in">end</span>;           </span><br><span class="line">            flashback(a, j, k);         <span class="comment">//单词倒序</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">puts</span>(a);</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">flashback</span><span class="params">(<span class="keyword">char</span> a[],<span class="keyword">int</span> j ,<span class="keyword">int</span> p)</span>       <span class="comment">//三个参数  第一个为数组的指针，第二个倒序的开始                                                位置，第三个为倒序的结束位置</span></span></span><br><span class="line"><span class="function">    </span>&#123;       </span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">char</span> temp;</span><br><span class="line">        <span class="keyword">for</span> (i = j; i &lt;p ; i++,p--)</span><br><span class="line">        &#123;</span><br><span class="line">            temp = a[p];</span><br><span class="line">            a[p] = a[i];</span><br><span class="line">            a[i] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -264,7 +433,7 @@
     <title>我的第一篇博客</title>
     <url>/2020/02/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h2 id="第一个hexo博客"><a href="#第一个hexo博客" class="headerlink" title="第一个hexo博客"></a>第一个hexo博客</h2><p>这是我的第一个博客，学着用hexo搭建的，很开心可以实用到学到的知识。</p>
-<p>以后主要会在这儿分享一些自己学习中的问题，偶尔也可能分享一些其他的东西。</p>
+<p>以后主要会在这儿分享一些自己学习中的问题，偶尔也可能分享一些其他的东西。<a id="more"></a></p>
 <p>因为搭建在github上所以有时候会比较慢。(。＿ 。） </p>
 <p>有兴趣的可以和我交流哦<em>(:з」∠)</em></p>
 <p>关于我里有我的联系方式，欢迎━(<em>｀∀´</em>)ノ亻!</p>

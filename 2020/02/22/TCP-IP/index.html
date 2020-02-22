@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="技术，学习，阅读，思考，博客" />
+   
+  <meta name="description" content="一座叫艾辛格的城市，技术，学习，阅读，思考，博客。" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    TCP/IP |  艾辛格
+  </title>
+  <meta name="generator" content="hexo-theme-yilia-plus">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+
+  
+
+  
+
+<link rel="alternate" href="/atom.xml" title="艾辛格" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-TCP-IP" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  TCP/IP
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/02/22/TCP-IP/" class="article-date">
+  <time datetime="2020-02-22T03:57:27.000Z" itemprop="datePublished">2020-02-22</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">5.2k字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">18分钟</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h2><p><img src="/2020/02/22/TCP-IP/001.png" alt></p>
+<p>Open System Interconnect开放系统互连参考模型</p>
+<a id="more"></a>
+
+<p> <img src="/2020/02/22/TCP-IP/002.png" alt></p>
+<h5 id="网络中传输的数据包由两部分组成："><a href="#网络中传输的数据包由两部分组成：" class="headerlink" title="网络中传输的数据包由两部分组成："></a><strong>网络中传输的数据包由两部分组成</strong>：</h5><p>一部分是协议所要用到的首部，另一部分是上一层传过 来的数据。包首部就像协议的脸。</p>
+<h5 id="不同层结构的地址："><a href="#不同层结构的地址：" class="headerlink" title="不同层结构的地址："></a><strong>不同层结构的地址：</strong></h5><ul>
+<li>传输层的地址：端口号   </li>
+</ul>
+<p>端口号用来识别同一台计算机中进行通信的不同应用程序。因</p>
+<p>此，它也被称为程序地址。</p>
+<ul>
+<li>网络层 ：ip地址</li>
+</ul>
+<p>ip地址来识别 TCP/IP 网络中互连的主机和路由器。</p>
+<ul>
+<li>数据链路层：MAC地址</li>
+</ul>
+<p>MAC地址识别同一链路中不同 的计算机</p>
+<p> <img src="/2020/02/22/TCP-IP/003.png" alt></p>
+<p> <img src="/2020/02/22/TCP-IP/004.png" alt></p>
+<p>UDP 常用于一下几个方面：</p>
+<p>1.包总量较少的通信（DNS、SNMP等）；</p>
+<p>2.视频、音频等多媒体通信（即时通信）；</p>
+<p>3.限定于 LAN 等特定网络中的应用通信；</p>
+<p>4.广播通信（广播、多播）。</p>
+<h4 id="三次握手（建立连接）"><a href="#三次握手（建立连接）" class="headerlink" title="三次握手（建立连接）"></a><strong>三次握手（建立连接）</strong></h4><p><img src="/2020/02/22/TCP-IP/005.png" alt></p>
+<p>1.第一次握手：</p>
+<p>​    客户端将标志位SYN（SYN：同步序列编号）置为1，随机产生一个值seq=J，并将该数据包发送给服务器端，客户端进入SYN_SENT状态，等待服务器端确认。</p>
+<p>2.第二次握手：</p>
+<p>​    服务器端收到数据包后由标志位SYN=1知道客户端请求建立连接，服务器端将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该数据包发送给客户端以确认连接请求，服务器端进入SYN_RCVD状态。</p>
+<p>3.第三次握手：</p>
+<p>​    客户端收到确认后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给服务器端，服务器端检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，客户端和服务器端进入ESTABLISHED（TCP连接成功）状态，完成三次握手，随后客户端与服务器端之间可以开始传输数据了。</p>
+<p>问：三次握手中，为什么客户机最后还要再向服务器发送一次确认呢？</p>
+<p>答：这是为了防止已失效的连接请求报文段突然又传到了服务器。所谓“已失效的连接请求报文段”是这样产生的。考虑一种正常的情况，客户机发出连接请求，但因为连接请求报文丢失而未收到确认。于是客户机再重传了一次连接请求，后来收到了确认，建立了连接。数据传输完后，就释放了连接。客户机共发送了两个连接请求报文段，其中第一个丢失，第二个到达了服务器，没有所谓的“已失效的连接请求报文段”。</p>
+<p>　　但是如果出现了一种异常情况，即客户机发出的第一个报文段并没有丢失，而是在某个节点上长时间滞留了，直至客户机向服务器发送了第二个报文段并且已经完成数据传输释放了连接，此时，第一个报文到达服务器后会被误以为是客户机重新发起的一次连接请求，实质上是一个早已失效的连接请求。如果没有第三次握手，那么这个连接就建立了，但是客户机并不会向服务器发送任何请求，这样连接就会一直持续，白白的消耗网络资源。</p>
+<h4 id="四次挥手（断开连接）"><a href="#四次挥手（断开连接）" class="headerlink" title="四次挥手（断开连接）"></a><strong>四次挥手（断开连接）</strong></h4><ul>
+<li>一方发起一方接受</li>
+</ul>
+<p><img src="/2020/02/22/TCP-IP/006.png" alt></p>
+<p>中断连接端可以是客户端，也可以是服务器端。</p>
+<p>1.第一次挥手：</p>
+<p>​      客户端发送一个FIN=M，用来关闭客户端到服务器端的数据传送，客户端进入FIN_WAIT_1状态。意思是说”我客户端没有数据要发给你了”，但是如果你服务器端还有数据没有发送完成，则不必急着关闭连接，可以继续发送数据。</p>
+<p>2.第二次挥手：</p>
+<p>​       服务器端收到FIN后，先发送ack=M+1，告诉客户端，你的请求我收到了，但是我还没准备好，请继续你等我的消息。这个时候客户端就进入FIN_WAIT_2状态，继续等待服务器端的FIN报文。</p>
+<p>3.第三次挥手：</p>
+<p>​      当服务器端确定数据已发送完成，则向客户端发送FIN=N报文，告诉客户端，好了，我这边数据发完了，准备好关闭连接了。服务器端进入LAST_ACK状</p>
+<p>态。</p>
+<p>4.第四次挥手：</p>
+<p>​       客户端收到FIN=N报文后，就知道可以关闭连接了，但是他还是不相信网络，怕服务器端不知道要关闭，所以发送ack=N+1后进入TIME_WAIT状态，如果Server端没有收到ACK则可以重传。服务器端收到ACK后，就知道可以断开连接了。客户端等待了2MSL（最大报文生存时间）后依然没有收到回复，则证明服务器端已正常关闭，那好，我客户端也可以关闭连接了。最终完成了四次挥手。</p>
+<ul>
+<li>同时关闭</li>
+</ul>
+<p><img src="/2020/02/22/TCP-IP/007.png" alt></p>
+<p>问：为什么客户机发送完最后一个数据后要在TIME-WAIT状态等待 2MSL（四分钟）的时间呢？</p>
+<p>​        答：第一：为了保证客户机最后发送的那个ACK报文段能够到达服务器。这个ACK报文段可能会丢失。因而使处在LAST-ACK状态的B收不到对已发送的FIN＋ACK报文段的确认。服务器会超时重传这个FIN＋ACK报文段，而客户机就能在2MSL时间内收到这个重传的FIN+ACK报文段。接着客户机重传一次确认，重新启动2MSL计时器，最后客户机和服务器都可以进入到CLOSED（关闭）状态。如果没有2MSL等待时间，那么就无法收到重传的FIN+ ACK包，无法进入正常的CLOSED状态。</p>
+<p>​    第二，防止“已失效的连接请求报文段”出现在本连接中。客户机在发送完最后一个ACK报文段，再经过时间2MSL，就可以使本连接持续的时间内所产生的报文段都从网络中消失。这样就可以使下一个新的连接中不会出现这种旧的连接请求报文段。</p>
+<p>问：为什么建立连接是三次握手，而关闭连接却是四次挥手呢？</p>
+<pre><code>这是因为服务端在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。而关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方也未必全部数据都发送给对方了，所以己方可以立即close，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送。</code></pre><h5 id="序列号与确认应答提高可靠性"><a href="#序列号与确认应答提高可靠性" class="headerlink" title="序列号与确认应答提高可靠性"></a><strong>序列号与确认应答提高可靠性</strong></h5><p>​    当发送端的数据到达接收主机时，接收端主机会返回一个已收到消息的通知。这个消息叫做<strong>确认应答</strong>（ACK）。当发送端将数据发出之后会等待对端的确认应答。如果有确认应答，说明数据已经成功到达对端。在一定时间内没有等待到确认应答，发送端就可以认为数据已经丢失，并进行重发。由此，即使产生了丢包，仍然能够保证数据能够到达对端，实现可靠传输。</p>
+<p>​    <strong>序列号</strong>是按照顺序给发送数据的每一个字节（8位字节）都标上号码的编号。接收端查询接收数据 TCP 首部中的序列号和数据的长度，将自己下一步应该接收的序列号作为确认应答返送回去。通过序列号和确认应答号，TCP 能够识别是否已经接收数据，又能够判断是否需要接收，从而实现可靠传输。</p>
+<h5 id="重发超时的确定"><a href="#重发超时的确定" class="headerlink" title="重发超时的确定"></a><strong>重发超时的确定</strong></h5><p>​    重发超时是指在重发数据之前，等待确认应答到来的那个特定时间间隔。如果超过这个时间仍未收到确认应答，发送端将进行数据重发。每次发包时都会计算往返时间及其偏差。将这个往返时间和偏差时间相加，重发超时的时间就是比这个总和要稍大一点的值（0.5秒的倍数）。数据被重发之后若还是收不到确认应答，则进行再次发送。此时，等待确认应答的时 间将会以2倍、4倍的指数函数延长</p>
+<p>​    数据也不会被无限的、反复地重发。达到一定重发次数之后，如果仍没有任何确认应答返回，就会判断为网络或对端主机发生了异常，强制关闭连接。并且通知应用通信异常强行终止。</p>
+<h5 id="MSS-最大报文段长度）"><a href="#MSS-最大报文段长度）" class="headerlink" title="MSS(最大报文段长度）"></a>MSS(最大报文段长度）</h5><p>TCP 在传送大量数据时，是以 MSS 的大小将数据进行分割发送。进行重发时也是以MSS 为单位。</p>
+<p>MSS 在三次握手的时候，在两端主机之间被计算得出。</p>
+<p>最理想的情况是，最大段消息长度正好是 IP 中不会被分片处理的最大段数据长度。</p>
+<h5 id="利用窗口控制提高速度"><a href="#利用窗口控制提高速度" class="headerlink" title="利用窗口控制提高速度"></a><strong>利用窗口控制提高速度</strong></h5><p>​    TCP 以1个段为单位，每发送一个段进行一次确认应答的处理。这样的传输方式有一个 缺点，就是包的往返时间越长通信性能就越低。</p>
+<p>​    窗口大小就是指无需等待确认应答而可以继续发送数据的最大值。这个机制实现了使用大量的缓冲区，通过对多个段同时进行确认应答的功能。</p>
+<p>​    收到确认应答的情况下，将窗口滑动到确认应答中的序列号的位置。这样可以顺序地 将多个段同时发送提高通信性能。这种机制也别称为<strong>滑动窗口控制</strong>。</p>
+<p>​    某个报文段丢失的情况。接收主机如果收到一个自己应该接收的序列号以外的数据时，会针对当前为止收到数据返回确认应答。而发送端主机如果连续3次收到同一个确认应答，就会将其对应的数据进行重发。这种机制比之前提到的超时管理更加高效，因此也被称为高速重发控制。</p>
+<h4 id="网络层中的-IP-协议"><a href="#网络层中的-IP-协议" class="headerlink" title="网络层中的 IP 协议"></a><strong>网络层中的 IP 协议</strong></h4><p>​    IP（IPv4、IPv6）相当于 OSI 参考模型中的第3层——网络层。网络层的主要作用是“实现终端节点之间的通信”。这种终端节点之间的通信也叫“点对点通信”。IP 大致分为三大作用模块，它们是 IP 寻址、路由（最终节点为止的转发）以及 IP 分包与组包。</p>
+<h5 id="ip地址"><a href="#ip地址" class="headerlink" title="ip地址"></a><strong>ip</strong>地址</h5><p>​    IP 地址用于在“连接到网络 中的所有主机中识别出进行通信的目标地址”在 TCP/IP 通信中所有主机或路 由器必须设定自己的 IP 地址。</p>
+<p>​    IP 地址（IPv4 地址）由32位正整数来表示。IP 地址在计算机内部以二进制方式被处理。然而，由于我们并不习惯于采用二进制方式，我们将32位的 IP 地址以每8位为一 组，分成4组，每组以 “.” 隔开，再将每组数转换成十进制数。 </p>
+<h5 id="IP-地址的分类"><a href="#IP-地址的分类" class="headerlink" title="IP 地址的分类"></a><strong>IP 地址的分类</strong></h5><p>​         IP 地址分为四个级别，分别为A类、B类、C类、D类。它根据 IP 地址中从第 1 位到 第 4 位的比特列对其网络标识和主机标识进行区分。第 4 位的比特列对其网络标识和主机标识进行区分。</p>
+<p> A 类 IP 地址是首位以 “0” 开头的地址。从第 1 位到第 8 位是它的网络标识。0.0.0.0~127.0.0.0 是 A 类的网络地址。A 类地址的后 24 位相当于主机标识。因此，一个网段内可容纳的主机地址上限为16,777,214个。</p>
+<p> B 类 IP 地址是前两位 “10” 的地址。从第 1 位到第 16 位是它的网络标识。128.0.0.0~191.255.0.0是 B 类的网络地址。B 类地址的后 16 位相当于 主机标识。因此，一个网段内可容纳的主机地址上限为65,534个。、</p>
+<p> C 类 IP 地址是前三位为 “110” 的地址。从第 1 位到第 24 位是它的网络标识。192.0.0.0~223.255.255.0 是 C 类的网络地址。C 类地址的后 8 位 相当于主机标识。因此，一个网段内可容纳的主机地址上限为254个。</p>
+<p>D 类 IP 地址是前四位为 “1110” 的地址。从第 1 位到第 32 位是它的网络标识。224.0.0.0~239.255.255.255 是 D 类的网络地址。D 类地址没有主机标识，常用于多播。</p>
+<p>​        在分配 IP 地址时关于主机标识有一点需要注意。即要用比特位表示主机地址时，不可以全部为 0 或全部为 1。因为全部为 0 只有在表示对应的网络地址或 IP 地址不可以获知的情况下才使用。而全部为 1 的主机通常作为广播地址。因此，在分配过程中，应该去掉这两种情况。这也是为什么 C 类地址每个网段最多只能有 254（ 28- 2 =254）个主机地址的原因。</p>
+<h5 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a><strong>子网掩码</strong></h5><p>​        子网掩码用二进制方式表示的话，也是一个 32 位的数字。它对应 IP 地址网络标识部 分的位全部为 “1”，对应 IP 地址主机标识的部分则全部为 “0”。由此，一个 IP 地址可以不再受限于自己的类别，而是可以用这样的子网掩码自由地定位自己的网络标识长度。子网掩码必须是 IP 地址的首位开始连续的 “1”。</p>
+<h5 id="ip包"><a href="#ip包" class="headerlink" title="ip包"></a>ip包</h5><p><img src="/2020/02/22/TCP-IP/008.png" alt></p>
+<p>​        T T L（t i m e - t o - l i v e）生存时间字段设置了数据报可以经过的最多路由器数。它指定了数据 报的生存时间。T T L的初始值由源主机设置（通常为 3 2或6 4），一旦经过一个处理它的路由器， 它的值就减去 1。当该字段的值为 0时，数据报就被丢弃，并发送 I C M P报文通知源主机。</p>
+<h5 id="路由"><a href="#路由" class="headerlink" title="路由"></a><strong>路由</strong></h5><p>​        仅有 IP 地址还不足 以实现将数据包发送到对端目标地址，在数据发送过程中还需要路由控制表。该路由控制表的形成方式有两种：一种是管理员手动设置，另一种是路由器与其他路 由器相互交换信息时自动刷新。前者也叫做静态路由控制，而后者叫做动态路由控制。</p>
+<p>​        IP 地址的网络地址部分用于进行路由控制。 路由控制表中记录着网络地址与下一步应该发送至路由器的地址。 在发送 IP 包时，首先要确定 IP 包首部中的目标地址，再从路由控制表中找到与该地址具有相同网络地址的记录，根据该记录将 IP 包转发给相应的下一个路由器。</p>
+<h5 id="IP-分包与组包"><a href="#IP-分包与组包" class="headerlink" title="IP 分包与组包"></a><strong>IP 分包与组包</strong></h5><p>每种数据链路的最大传输单元（MTU）都不尽相同，因为每个不同类型的数据链路的使 用目的不同。经过分片之后的 IP 数据报在被重组的时候，只能由目标主机进行。路由器虽然做分片但不会进行重组。</p>
+<h5 id="路径MTU发现"><a href="#路径MTU发现" class="headerlink" title="路径MTU发现"></a><strong>路径MTU发现</strong></h5><p>如果两台主机之间的通信要通过多个网络，那么每个网络的链路层就可能有不同的MTU。两台通信主机路径中的最小MTU。它被称作路径MTU(PMTU)。进行路径 MTU 发现，就可以避免在中途的路由器上进行分片处理，也可以在 TCP 中发送更大的包。</p>
+<h4 id="IPv6"><a href="#IPv6" class="headerlink" title="IPv6"></a><strong>IPv6</strong></h4><p>​         IPv6（IP version 6）是为了根本解决 IPv4 地址耗尽的问题而被标准化的网际协议。 IPv4 的地址长度为 4 个 8 位字节，即 32 比特。而 IPv6 的地址长度则是原来的 4 倍，即 128 比特，一般写成 8 个 16 位字节。 </p>
+<h5 id="IPv6-的特点"><a href="#IPv6-的特点" class="headerlink" title="IPv6 的特点"></a>IPv6 的特点</h5><ol>
+<li>IP 得知的扩大与路由控制表的聚合。</li>
+<li>包首部长度采用固定的值（40字节），不再采用首部检验码。简化首部结构，减轻路由器负担。路由器不再做分片处理。</li>
+<li>支持即插即用功能。即使没有DHCP服务器也可以实现自动分配 IP 地址。</li>
+<li>采用认证与加密功能。应对伪造 IP 地址的网络安全功能以及防止线路窃听的功能。</li>
+<li>多播、Mobile IP 成为扩展功能。</li>
+</ol>
+<h5 id="Ipv6地址"><a href="#Ipv6地址" class="headerlink" title="Ipv6地址"></a>Ipv6地址</h5><p>​    一般人们将 128 比特 IP 地址以每 16 比特为一组，每组用冒号（“：”）隔开进行标 记。 而且如果出现连续的 0 时还可以将这些 0 省略，并用两个冒号（“：：”）隔开。但 是，一个 IP 地址中只允许出现一次两个连续的冒号。IPv6 分段处理 IPv6 的分片处理只在作为起点的发送端主机上进行，路由器不参与分片。 IPv6 中最小 MTU 为 1280 字节。</p>
+<h5 id="地址解析协议-ARP"><a href="#地址解析协议-ARP" class="headerlink" title="地址解析协议 ARP"></a><strong>地址解析协议 ARP</strong></h5><p>•网络层实现主机之间的通信，而链路层实现具体每段链路之间的通信。因此在通信过程中，IP 数据报的源地址和目的地址始终不变，而 MAC 地址随着链路的改变而改变。ARP 实现由 IP 地址得到 MAC 地址。每个主机都有一个 ARP 高速缓存，里面有本局域网上的各主机和路由器的 IP 地址到 MAC 地址的映射表。</p>
+<p>如果主机 A 知道主机 B 的 IP 地址，但是 ARP 高速缓存中没有该 IP 地址到 MAC 地址的映射，此时主机 A 通过广播的方式发送 ARP 请求分组，主机 B 收到该请求后会发送 ARP 响应分组给主机 A 告知其 MAC 地址，随后主机 A 向其高速缓存中写入主机 B 的 IP 地址到 MAC 地址的映射。</p>
+<h5 id="网际控制报文协议-ICMP"><a href="#网际控制报文协议-ICMP" class="headerlink" title="网际控制报文协议 ICMP"></a><strong>网际控制报文协议 ICMP</strong></h5><p>iCMP经常被认为是 I P层的一个组成部分。它传递差错报文以及其他需要注意的信息。当传送IP数据包发生错误比如主机不可达，路由不可达等等，ICMP协议将会把错误信息封包，然后传送回给主机。给主机一个处理错误的机会，这 也就是为什么说建立在IP层以上的协议是可能做到安全的原因。 </p>
+<h5 id="DNS"><a href="#DNS" class="headerlink" title="DNS"></a><strong>DNS</strong></h5><p>我们平常在访问某个网站时不适用 IP 地址，而是用一串由罗马字和点号组成的字符 串。而一般用户在使用 TCP/IP 进行通信时也不使用 IP 地址。域名系统（Domain Name System缩写DNS，Domain Name被译为域名）是因特网的一项核心服务，它作为可以将域名和IP地址相互映射的一个分布式数据库，能够使人更方便的访问互联网，而不用去记住能够被机器直接读取的IP数串。</p>
+<h5 id="DHCP（动态主机配置协议）"><a href="#DHCP（动态主机配置协议）" class="headerlink" title="DHCP（动态主机配置协议）"></a><strong>DHCP（动态主机配置协议）</strong></h5><p>是一个局域网的网络协议。指的是由服务器控制一段lP地址范围，客户机登录服务器时就可以自动获得服务器分配的lP地址和子网掩码。</p>
+<h5 id="NAT（Network-Address-Translator网络地址转换）"><a href="#NAT（Network-Address-Translator网络地址转换）" class="headerlink" title="NAT（Network Address Translator网络地址转换）"></a><strong>NAT（Network Address Translator网络地址转换）</strong></h5><p>是用于在本地网络中使用私有地址，在连接互 联网时转而使用全局 IP 地址的技术。</p>
+<h5 id="IP-隧道"><a href="#IP-隧道" class="headerlink" title="IP 隧道"></a><strong>IP 隧道</strong></h5><p>IP隧道是指一种可在两网络间用网际协议进行通信的通道。在该通道里，会先封装其他网络协议的数据包，之后再传输信息。实现不同网络环境的通信（例如ipv4和ipv6）</p>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>版权声明： </strong s>
+              本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow"
+                target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://llsengard.github.io/2020/02/22/TCP-IP/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP-IP/" rel="tag">TCP/IP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/" rel="tag">计算机网络基础</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/2020/02/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            数据结构
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">简单错误记录</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2020
+        lsengard
+      </li>
+      <li>
+        
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+        
+        <span>
+  <i>PV:<span id="busuanzi_value_page_pv"></span></i>
+  <i>UV:<span id="busuanzi_value_site_uv"></span></i>
+</span>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+      <aside class="sidebar">
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="艾辛格"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+      
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<script src="/js/share.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script>
+  try {
+    var typed = new Typed("#subtitle", {
+    strings: ['我们坚持一件事情，并不是因为这样做了会有效果，而是坚信，这样做是对的','愿你一生努力，一生被爱','想要的都拥有，得不到的都释怀'],
+    startDelay: 0,
+    typeSpeed: 200,
+    loop: true,
+    backSpeed: 80,
+    showCursor: true
+    });
+  } catch (err) {
+  }
+  
+</script>
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer:'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    onClick: (e) => {
+      $('.toc-link').removeClass('is-active-link');
+      $(`a[href=${e.target.hash}]`).addClass('is-active-link');
+      $(e.target.hash).scrollIntoView();
+      return false;
+    }
+  });
+</script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+
+<script src="/js/ayer.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  </div>
+</body>
+
+</html>

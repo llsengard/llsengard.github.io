@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://llsengard.github.io/"/>
-  <updated>2020-02-21T14:33:34.898Z</updated>
+  <updated>2020-02-22T06:32:39.764Z</updated>
   <id>https://llsengard.github.io/</id>
   
   <author>
@@ -17,21 +17,66 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>数据结构</title>
+    <link href="https://llsengard.github.io/2020/02/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <id>https://llsengard.github.io/2020/02/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</id>
+    <published>2020-02-22T05:56:38.000Z</published>
+    <updated>2020-02-22T06:32:39.764Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;数据结构&quot;&gt;&lt;a href=&quot;#数据结构&quot; class=&quot;headerlink&quot; title=&quot;数据结构&quot;&gt;&lt;/a&gt;数据结构&lt;/h3&gt;&lt;h5 id=&quot;数组&quot;&gt;&lt;a href=&quot;#数组&quot; class=&quot;headerlink&quot; title=&quot;数组&quot;&gt;&lt;/a&gt;数组&lt;/h5&gt;&lt;p&gt;&lt;strong&gt;优点&lt;/strong&gt;：可以随机访问&lt;/p&gt;
+&lt;p&gt;​        随机访问是数组的强项，因为它们的元素在内存中是连续排列的。这种连续的排列方式使得数组中的任何元素能够在O（1）的时间内通过其索引访问。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://llsengard.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="数据结构" scheme="https://llsengard.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TCP/IP</title>
+    <link href="https://llsengard.github.io/2020/02/22/TCP-IP/"/>
+    <id>https://llsengard.github.io/2020/02/22/TCP-IP/</id>
+    <published>2020-02-22T03:57:27.000Z</published>
+    <updated>2020-02-22T06:30:50.550Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;TCP-IP&quot;&gt;&lt;a href=&quot;#TCP-IP&quot; class=&quot;headerlink&quot; title=&quot;TCP/IP&quot;&gt;&lt;/a&gt;TCP/IP&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2020/02/22/TCP-IP/001.png&quot; alt&gt;&lt;/p&gt;
+&lt;p&gt;Open System Interconnect开放系统互连参考模型&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="计算机网络" scheme="https://llsengard.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="计算机网络基础" scheme="https://llsengard.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="TCP/IP" scheme="https://llsengard.github.io/tags/TCP-IP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>简单错误记录</title>
     <link href="https://llsengard.github.io/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/"/>
     <id>https://llsengard.github.io/2020/02/21/%E7%AE%80%E5%8D%95%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95/</id>
     <published>2020-02-21T13:49:51.000Z</published>
-    <updated>2020-02-21T14:33:34.898Z</updated>
+    <updated>2020-02-22T06:31:45.949Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;简单错误记录&quot;&gt;&lt;a href=&quot;#简单错误记录&quot; class=&quot;headerlink&quot; title=&quot;简单错误记录&quot;&gt;&lt;/a&gt;简单错误记录&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;简单错误记录&quot;&gt;&lt;a href=&quot;#简单错误记录&quot; class=&quot;headerlink&quot; title=&quot;简单错误记录&quot;&gt;&lt;/a&gt;简单错误记录&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;开发一个简单错误记录功能小模块，能够记录出错的代码所在的文件名称和行号。&lt;/p&gt;
+&lt;p&gt;处理：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;记录最多8条错误记录，循环记录（或者说最后只输出最后出现的八条错误记录），对相同的错误记录（净文件名称和行号完全匹配）只记录一条，&lt;strong&gt;错误计数增加；&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;超过16个字符的文件名称，只记录文件的最后有效16个字符&lt;/li&gt;
+&lt;li&gt;输入的文件可能带路径，记录文件名称不能带路径。&lt;a href=&quot;https://www.nowcoder.com/practice/2baa6aba39214d6ea91a2e03dff3fbeb?tpId=37&amp;tqId=21242&amp;tPage=1&amp;rp=&amp;ru=/ta/huawei&amp;qru=/ta/huawei/question-ranking&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目出处&lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;
     
     </summary>
     
@@ -50,17 +95,11 @@
     <link href="https://llsengard.github.io/2020/02/21/%E8%AF%86%E5%88%AB%E6%9C%89%E6%95%88%E7%9A%84IP%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8E%A9%E7%A0%81%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1/"/>
     <id>https://llsengard.github.io/2020/02/21/%E8%AF%86%E5%88%AB%E6%9C%89%E6%95%88%E7%9A%84IP%E5%9C%B0%E5%9D%80%E5%92%8C%E6%8E%A9%E7%A0%81%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E7%BB%9F%E8%AE%A1/</id>
     <published>2020-02-21T13:49:30.000Z</published>
-    <updated>2020-02-21T14:18:42.377Z</updated>
+    <updated>2020-02-22T06:32:27.293Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;识别有效的IP地址和掩码并进行分类统计&quot;&gt;&lt;a href=&quot;#识别有效的IP地址和掩码并进行分类统计&quot; class=&quot;headerlink&quot; title=&quot;识别有效的IP地址和掩码并进行分类统计&quot;&gt;&lt;/a&gt;识别有效的IP地址和掩码并进行分类统计&lt;/h1&gt;&lt;h4
-        
-      
+      &lt;h1 id=&quot;识别有效的IP地址和掩码并进行分类统计&quot;&gt;&lt;a href=&quot;#识别有效的IP地址和掩码并进行分类统计&quot; class=&quot;headerlink&quot; title=&quot;识别有效的IP地址和掩码并进行分类统计&quot;&gt;&lt;/a&gt;识别有效的IP地址和掩码并进行分类统计&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;请解析IP地址和对应的掩码，进行分类识别。要求按照A/B/C/D/E类地址归类，不合法的地址和掩码单独归类。&lt;/p&gt;
     
     </summary>
     
@@ -79,17 +118,11 @@
     <link href="https://llsengard.github.io/2020/02/21/%E5%9D%90%E6%A0%87%E7%A7%BB%E5%8A%A8/"/>
     <id>https://llsengard.github.io/2020/02/21/%E5%9D%90%E6%A0%87%E7%A7%BB%E5%8A%A8/</id>
     <published>2020-02-21T13:49:02.000Z</published>
-    <updated>2020-02-21T14:39:42.554Z</updated>
+    <updated>2020-02-22T06:33:38.657Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;坐标移动&quot;&gt;&lt;a href=&quot;#坐标移动&quot; class=&quot;headerlink&quot; title=&quot;坐标移动&quot;&gt;&lt;/a&gt;坐标移动&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;坐标移动&quot;&gt;&lt;a href=&quot;#坐标移动&quot; class=&quot;headerlink&quot; title=&quot;坐标移动&quot;&gt;&lt;/a&gt;坐标移动&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;开发一个坐标计算工具， A表示向左移动，D表示向右移动，W表示向上移动，S表示向下移动。从（0,0）点开始移动，从输入字符串里面读取一些坐标，并将最终输入结果输出到输出文件里面。&lt;a href=&quot;https://www.nowcoder.com/practice/119bcca3befb405fbe58abe9c532eb29?tpId=37&amp;tqId=21240&amp;tPage=1&amp;rp=&amp;ru=/ta/huawei&amp;qru=/ta/huawei/question-ranking&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目出处&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -108,17 +141,12 @@
     <link href="https://llsengard.github.io/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/"/>
     <id>https://llsengard.github.io/2020/02/21/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%88%E5%B9%B6%E5%A4%84%E7%90%86/</id>
     <published>2020-02-21T12:20:47.000Z</published>
-    <updated>2020-02-21T15:04:08.749Z</updated>
+    <updated>2020-02-22T06:33:28.227Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;字符串合并处理&quot;&gt;&lt;a href=&quot;#字符串合并处理&quot; class=&quot;headerlink&quot; title=&quot;字符串合并处理&quot;&gt;&lt;/a&gt;字符串合并处理&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;字符串合并处理&quot;&gt;&lt;a href=&quot;#字符串合并处理&quot; class=&quot;headerlink&quot; title=&quot;字符串合并处理&quot;&gt;&lt;/a&gt;字符串合并处理&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;将输入的两个字符串合并。&lt;/p&gt;
+&lt;p&gt;对合并后的字符串进行排序，要求为：下标为奇数的字符和下标为偶数的字符分别从小到大排序。这里的下标意思是字符在字符串中的位置。&lt;/p&gt;
     
     </summary>
     
@@ -141,17 +169,11 @@
     <link href="https://llsengard.github.io/2020/02/21/%E6%9F%A5%E6%89%BE%E5%85%84%E5%BC%9F%E5%8D%95%E8%AF%8D/"/>
     <id>https://llsengard.github.io/2020/02/21/%E6%9F%A5%E6%89%BE%E5%85%84%E5%BC%9F%E5%8D%95%E8%AF%8D/</id>
     <published>2020-02-21T12:20:47.000Z</published>
-    <updated>2020-02-21T13:45:07.896Z</updated>
+    <updated>2020-02-22T06:31:17.070Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;查找兄弟单词&quot;&gt;&lt;a href=&quot;#查找兄弟单词&quot; class=&quot;headerlink&quot; title=&quot;查找兄弟单词&quot;&gt;&lt;/a&gt;查找兄弟单词&lt;/h1&gt;&lt;h3 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;查找兄弟单词&quot;&gt;&lt;a href=&quot;#查找兄弟单词&quot; class=&quot;headerlink&quot; title=&quot;查找兄弟单词&quot;&gt;&lt;/a&gt;查找兄弟单词&lt;/h1&gt;&lt;h3 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h3&gt;&lt;p&gt;&lt;img src=&quot;http://uploadfiles.nowcoder.com/images/20151225/60_1451038439514_F3CCDD27D2000E3F9255A7E3E2C48800&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -172,17 +194,11 @@
     <link href="https://llsengard.github.io/2020/02/21/%E6%95%B4%E6%95%B0%E4%B8%8Eip%E5%9C%B0%E5%9D%80%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/"/>
     <id>https://llsengard.github.io/2020/02/21/%E6%95%B4%E6%95%B0%E4%B8%8Eip%E5%9C%B0%E5%9D%80%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2/</id>
     <published>2020-02-21T12:00:00.000Z</published>
-    <updated>2020-02-21T13:47:15.863Z</updated>
+    <updated>2020-02-22T06:33:21.648Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;整数与ip地址间的转换&quot;&gt;&lt;a href=&quot;#整数与ip地址间的转换&quot; class=&quot;headerlink&quot; title=&quot;整数与ip地址间的转换&quot;&gt;&lt;/a&gt;整数与ip地址间的转换&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot;
-        
-      
+      &lt;h1 id=&quot;整数与ip地址间的转换&quot;&gt;&lt;a href=&quot;#整数与ip地址间的转换&quot; class=&quot;headerlink&quot; title=&quot;整数与ip地址间的转换&quot;&gt;&lt;/a&gt;整数与ip地址间的转换&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;原理：ip地址的每段可以看成是一个0-255的整数，把每段拆分成一个二进制形式组合起来，然后把这个二进制数转变成一个长整数。&lt;/p&gt;
     
     </summary>
     
@@ -201,17 +217,11 @@
     <link href="https://llsengard.github.io/2020/02/21/%E6%B1%BD%E6%B0%B4%E7%93%B6/"/>
     <id>https://llsengard.github.io/2020/02/21/%E6%B1%BD%E6%B0%B4%E7%93%B6/</id>
     <published>2020-02-21T10:08:11.000Z</published>
-    <updated>2020-02-21T14:38:36.070Z</updated>
+    <updated>2020-02-22T06:32:13.781Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;汽水瓶&quot;&gt;&lt;a href=&quot;#汽水瓶&quot; class=&quot;headerlink&quot; title=&quot;汽水瓶&quot;&gt;&lt;/a&gt;汽水瓶&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;汽水瓶&quot;&gt;&lt;a href=&quot;#汽水瓶&quot; class=&quot;headerlink&quot; title=&quot;汽水瓶&quot;&gt;&lt;/a&gt;汽水瓶&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;有这样一道智力题：“某商店规定：三个空汽水瓶可以换一瓶汽水。小张手上有十个空汽水瓶，她最多可以换多少瓶汽水喝？”答案是5瓶，方法如下：先用9个空瓶子换3瓶汽水，喝掉3瓶满的，喝完以后4个空瓶子，用3个再换一瓶，喝掉这瓶满的，这时候剩2个空瓶子。然后你让老板先借给你一瓶汽水，喝掉这瓶满的，喝完以后用3个空瓶子换一瓶满的还给老板。如果小张手上有n个空汽水瓶，最多可以换多少瓶汽水喝？&lt;a href=&quot;https://www.nowcoder.com/practice/fe298c55694f4ed39e256170ff2c205f?tpId=37&amp;tqId=21245&amp;tPage=2&amp;rp=&amp;ru=%2Fta%2Fhuawei&amp;qru=%2Fta%2Fhuawei%2Fquestion-ranking&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目出处&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -230,17 +240,11 @@
     <link href="https://llsengard.github.io/2020/02/21/%E3%80%90%E4%B8%AD%E7%BA%A7%E3%80%91%E5%AF%86%E7%A0%81%E6%88%AA%E5%8F%96/"/>
     <id>https://llsengard.github.io/2020/02/21/%E3%80%90%E4%B8%AD%E7%BA%A7%E3%80%91%E5%AF%86%E7%A0%81%E6%88%AA%E5%8F%96/</id>
     <published>2020-02-21T10:07:11.000Z</published>
-    <updated>2020-02-21T13:44:15.724Z</updated>
+    <updated>2020-02-22T06:29:53.644Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;【中级】密码截取&quot;&gt;&lt;a href=&quot;#【中级】密码截取&quot; class=&quot;headerlink&quot; title=&quot;【中级】密码截取&quot;&gt;&lt;/a&gt;【中级】密码截取&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;【中级】密码截取&quot;&gt;&lt;a href=&quot;#【中级】密码截取&quot; class=&quot;headerlink&quot; title=&quot;【中级】密码截取&quot;&gt;&lt;/a&gt;【中级】密码截取&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;Catcher是MCA国的情报员，他工作时发现敌国会用一些对称的密码进行通信，比如像这些ABBA，ABA，A，123321，但是他们有时会在开始或结束时加入一些无关的字符以防止别国破解。比如进行下列变化 ABBA-&amp;gt;12ABBA,ABA-&amp;gt;ABAKK,123321-&amp;gt;51233214　。因为截获的串太长了，而且存在多种可能的情况（abaaab可看作是aba,或baaab的加密形式），Cathcer的工作量实在是太大了，他只能向电脑高手求助，你能帮Catcher找出最长的有效密码串吗？&lt;a href=&quot;https://www.nowcoder.com/practice/3cd4621963e8454594f00199f4536bb1?tpId=37&amp;tqId=21255&amp;tPage=2&amp;rp=&amp;ru=%2Fta%2Fhuawei&amp;qru=%2Fta%2Fhuawei%2Fquestion-ranking&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目出处&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -250,9 +254,9 @@
     
       <category term="c语言" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80/"/>
     
-      <category term="字符串截取" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96/"/>
-    
       <category term="字符串逆序" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%80%86%E5%BA%8F/"/>
+    
+      <category term="字符串截取" scheme="https://llsengard.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%88%AA%E5%8F%96/"/>
     
   </entry>
   
@@ -261,17 +265,11 @@
     <link href="https://llsengard.github.io/2020/02/21/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/"/>
     <id>https://llsengard.github.io/2020/02/21/%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/</id>
     <published>2020-02-21T10:07:11.000Z</published>
-    <updated>2020-02-21T13:43:31.128Z</updated>
+    <updated>2020-02-22T06:32:05.980Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;明明的随机数&quot;&gt;&lt;a href=&quot;#明明的随机数&quot; class=&quot;headerlink&quot; title=&quot;明明的随机数&quot;&gt;&lt;/a&gt;明明的随机数&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;明明的随机数&quot;&gt;&lt;a href=&quot;#明明的随机数&quot; class=&quot;headerlink&quot; title=&quot;明明的随机数&quot;&gt;&lt;/a&gt;明明的随机数&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据，希望大家能正确处理)。 &lt;a href=&quot;https://www.nowcoder.com/practice/3245215fffb84b7b81285493eae92ff0?tpId=37&amp;tqId=21226&amp;tPage=1&amp;rp=&amp;ru=/ta/huawei&amp;qru=/ta/huawei/question-ranking&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目出处&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -292,17 +290,15 @@
     <link href="https://llsengard.github.io/2020/02/21/%E5%8D%95%E8%AF%8D%E5%80%92%E6%8E%92/"/>
     <id>https://llsengard.github.io/2020/02/21/%E5%8D%95%E8%AF%8D%E5%80%92%E6%8E%92/</id>
     <published>2020-02-21T09:42:39.000Z</published>
-    <updated>2020-02-21T13:45:44.855Z</updated>
+    <updated>2020-02-22T06:31:36.257Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;【中级】单词倒排（C语言）&quot;&gt;&lt;a href=&quot;#【中级】单词倒排（C语言）&quot; class=&quot;headerlink&quot; title=&quot;【中级】单词倒排（C语言）&quot;&gt;&lt;/a&gt;【中级】单词倒排（C语言）&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot;
-        
-      
+      &lt;h1 id=&quot;【中级】单词倒排（C语言）&quot;&gt;&lt;a href=&quot;#【中级】单词倒排（C语言）&quot; class=&quot;headerlink&quot; title=&quot;【中级】单词倒排（C语言）&quot;&gt;&lt;/a&gt;【中级】单词倒排（C语言）&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;对字符串中的所有单词进行倒排。&lt;/p&gt;
+&lt;p&gt;1、每个单词是以26个大写或小写英文字母构成；&lt;/p&gt;
+&lt;p&gt;2、非构成单词的字符均视为单词间隔符；&lt;/p&gt;
+&lt;p&gt;3、要求倒排后的单词间隔符以一个空格表示；如果原字符串中相邻单词间有多个间隔符时，倒排转换后也只允许出现一个空格间隔符；&lt;/p&gt;
+&lt;p&gt;4、每个单词最长20个字母；&lt;a href=&quot;https://www.nowcoder.com/practice/81544a4989df4109b33c2d65037c5836?tpId=37&amp;tqId=21254&amp;tPage=2&amp;rp=&amp;ru=%2Fta%2Fhuawei&amp;qru=%2Fta%2Fhuawei%2Fquestion-ranking&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目出处&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -321,17 +317,11 @@
     <link href="https://llsengard.github.io/2020/02/21/%E5%8F%A5%E5%AD%90%E9%80%86%E5%BA%8F/"/>
     <id>https://llsengard.github.io/2020/02/21/%E5%8F%A5%E5%AD%90%E9%80%86%E5%BA%8F/</id>
     <published>2020-02-21T07:58:53.000Z</published>
-    <updated>2020-02-21T13:46:19.071Z</updated>
+    <updated>2020-02-22T06:31:55.617Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;句子逆序（C语言）&quot;&gt;&lt;a href=&quot;#句子逆序（C语言）&quot; class=&quot;headerlink&quot; title=&quot;句子逆序（C语言）&quot;&gt;&lt;/a&gt;句子逆序（C语言）&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;句子逆序（C语言）&quot;&gt;&lt;a href=&quot;#句子逆序（C语言）&quot; class=&quot;headerlink&quot; title=&quot;句子逆序（C语言）&quot;&gt;&lt;/a&gt;句子逆序（C语言）&lt;/h1&gt;&lt;h4 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h4&gt;&lt;p&gt;将一个英文语句以单词为单位逆序排放。例如“I am a boy”，逆序排放后为“boy a am I”&lt;br&gt;所有单词之间用一个空格隔开，语句中除了英文字母外，不再包含其他字符。&lt;a href=&quot;https://www.nowcoder.com/practice/48b3cb4e3c694d9da5526e6255bb73c3?tpId=37&amp;tqId=21236&amp;tPage=1&amp;rp=&amp;ru=%2Fta%2Fhuawei&amp;qru=%2Fta%2Fhuawei%2Fquestion-ranking&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目出处&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -350,17 +340,12 @@
     <link href="https://llsengard.github.io/2020/02/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
     <id>https://llsengard.github.io/2020/02/19/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
     <published>2020-02-19T10:59:11.000Z</published>
-    <updated>2020-02-22T03:36:14.004Z</updated>
+    <updated>2020-02-22T06:32:49.595Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;第一个hexo博客&quot;&gt;&lt;a href=&quot;#第一个hexo博客&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h2 id=&quot;第一个hexo博客&quot;&gt;&lt;a href=&quot;#第一个hexo博客&quot; class=&quot;headerlink&quot; title=&quot;第一个hexo博客&quot;&gt;&lt;/a&gt;第一个hexo博客&lt;/h2&gt;&lt;p&gt;这是我的第一个博客，学着用hexo搭建的，很开心可以实用到学到的知识。&lt;/p&gt;
+&lt;p&gt;以后主要会在这儿分享一些自己学习中的问题，偶尔也可能分享一些其他的东西。&lt;/p&gt;
     
     </summary>
     
