@@ -10,7 +10,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    数据结构 |  艾辛格
+    创建单链表 |  艾辛格
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -36,7 +36,7 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-数据结构" class="article article-type-post" itemscope
+  <article id="post-创建单链表" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -44,7 +44,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  数据结构
+  创建单链表
 </h1>
   
 
@@ -53,12 +53,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/02/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-date">
-  <time datetime="2020-02-22T05:56:38.000Z" itemprop="datePublished">2020-02-22</time>
+      <a href="/2020/02/23/%E5%88%9B%E5%BB%BA%E5%8D%95%E9%93%BE%E8%A1%A8/" class="article-date">
+  <time datetime="2020-02-23T13:01:52.000Z" itemprop="datePublished">2020-02-23</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+    <a class="article-category-link" href="/categories/c%E8%AF%AD%E8%A8%80/">c语言</a>
   </div>
 
       
@@ -68,7 +68,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">2.8k字</span>
+            <span class="post-count">495字</span>
         </span>
     </span>
 
@@ -77,7 +77,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">9分钟</span>
+            <span class="post-count">2分钟</span>
         </span>
     </span>
 </div>
@@ -104,50 +104,27 @@
       
 
       
-      <h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p><strong>优点</strong>：可以随机访问</p>
-<p>​        随机访问是数组的强项，因为它们的元素在内存中是连续排列的。这种连续的排列方式使得数组中的任何元素能够在O（1）的时间内通过其索引访问。<a id="more"></a></p>
-<p><strong>缺点</strong>：编译时就确定了大小，插入删除的复杂度高都为o(n)便于查找某个元素（二分法）</p>
-<h5 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h5><p><strong>优点</strong>：易于插入和删除元素，可以动态的分配空间</p>
-<p>​        链表，除了销毁链表操作外，其他的操作都具有O（1）的运行时复杂度。</p>
-<p><strong>缺点</strong>：但是不能随机访问只能顺序访问查找元素不方便（必须遍历链表）</p>
-<p>​        想得到指向链表中某个特定元素的指针其代价是很高的。例如，在最坏的情况下，可能需要遍历整个链表，此时的开销就是O（n），这里n代表链表中的元素个数。</p>
-<p><strong>链表的例子：页帧管理</strong></p>
-<p>​        虚拟内存是一种地址空间的映射机制，它允许进程（运行的程序）不必完全加载到物理内存（系统的实际内存）中也可以得到运行。这种方式的一个优点是进程可以使用比系统实际所允许的物理内存大得多的地址空间。另一个优点是多个进程能够共享系统的内存以并发的每一个进程都有它自己的页表，将它的虚拟地址空间中的页映射到物理内存中的页帧上。当某个进程引用一个虚拟地址时，页表中的某项需要检查并决定该页关联到哪个物理页帧上（见图5-5）。当进程引用一个不在物理页帧上的虚拟地址时，会导致系统产生一个页错误并为之在物理内存中分配一个页帧。<br>​<br>​        某些时候我们不得不面对必须去替换某些页面到交换磁盘的情况，那么，最适合操作系统替换的页面应该就是在未来最长的一段时间内都不会再次访问的那些页面，使用<strong>最近最少使用算法</strong>（LeastRecentlyUsed），或者LRU页面替换法。<br>​<br>​        当需要某个页帧时，操作系统就使用它维护的循环链表以及引用值来判断哪些页面应该释放其页帧。为了确定这一点，开始遍历链表直到找到一个引用值为0的元素。当遍历每一个页面时，操作系统将页面的引用值从1重设回0。一旦它遇到引用值为0的元素，它就找到了一个自从上次遍历链表以来都没有被系统访问过的页面，因此这个页面就是最近最少使用的页面。那么这个页面就在物理内存中和新的页面置换，新的页面被插入链表中原来页面的位置。如果自从算法上次运行以来，所有的页面都被访问过了，那么操作系统就完整地遍历了一次链表，此时就置换它开始的页面。</p>
-<p><strong>栈（后进先出）和队列（先进先出）就是链表的一种</strong></p>
-<p>栈和队列的一些应用：</p>
-<h5 id="队列"><a href="#队列" class="headerlink" title="队列"></a><strong>队列</strong></h5><p> <strong>事件处理：</strong></p>
-<p>​        在实时系统中，当事件频繁发生时，系统往往并没有完全准备好去处理它们。而队列可以记录事件的信息，并在稍后将发生的事件按接收顺序一一处理。</p>
-<h5 id="栈"><a href="#栈" class="headerlink" title="栈"></a><strong>栈</strong></h5><p><strong>c函数的调用</strong>：</p>
-<p>​        当在C程序中调用一个函数时，一个包含调用信息的活动记录被压入一个栈中，这个栈称为程序栈。当此函数结束时，它的活动记录会从程序栈中弹出。栈是记录函数调用过程的完美模型，因为函数的调用过程与函数的返回过程是相反的，这与栈的特性相吻合。</p>
-<h5 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a><strong>哈希表</strong></h5><p>​        支持一种最有效的检索方法：散列。从根本上来说，一个哈希表包含一个数组，通过特殊的索引值（键）来访问数组中的元素。哈希表的主要思想是通过一个哈希函数，在所有可能的键与槽位之间建立一张映射表。哈希函数每次接受一个键将返回与键相对应的哈希编码或哈希值。键的数据类型可能多种多样，但哈希值的类型只能是整型。</p>
-<p>​        <strong>链式哈希表</strong>从根本上来说是由一组链表构成。每个链表都可以看做一个“桶”，我们将所有的元素通过散列的方式放到具体的不同的桶中（见图8-1）。插入元素时，首先将其键传入一个哈希函数（该过程称为哈希键），函数通过散列的方式告知元素属于哪个“桶”，然后在相应的链表头插入元素。查找或删除元素时，用同样的方式先找到元素的“桶”，然后遍历相应的链表，直到发现我们想要查找的元素。</p>
-<h6 id="选择哈希函数"><a href="#选择哈希函数" class="headerlink" title="选择哈希函数"></a>选择哈希函数</h6><p>取余法</p>
-<p>h（k）=k mod m 或者乘法</p>
-<p><img src="/2020/02/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/001.png" alt></p>
-<p>​        链式哈希表是一种用来实现符号表的好方法，因为除了它能高效地存放和检索信息之外，事实上它还能用来存储无限量的数据。为了能够更加有效地管理程序中的符号信息，编译器通常使用一种叫做符号表的数据结构。</p>
-<h6 id="开地址哈希表的描述（数组构成）"><a href="#开地址哈希表的描述（数组构成）" class="headerlink" title="开地址哈希表的描述（数组构成）"></a><strong>开地址哈希表的描述（数组构成）</strong></h6><p>​        在开地址哈希表中，元素存放在表本身中。这种特性对于某些依赖于固定大小表的应用来说非常有用。在开地址哈希表中解决冲突的方法就是探查这个表，直到找到一个可以放置元素的槽。线性探查的优点是简单，而且它对m没有限制，这样就可以保证所有的槽位最终都可能探查到。这种过度的探查会降低表的性能。</p>
-<p>​        双散列最有效地探查开地址哈希表的方法之一，就是通过计算两个辅助哈希函数哈希编码的和来得到哈希编码。双散列的优点是，它能够在表中探查并产生较好的元素分布（见图8-3）。其缺点是，必须限制m的值，这样才能保证在一系列探查中访问表中所有槽之后才会再次探查任何槽。</p>
-<h5 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a><strong>二叉树</strong></h5><p>​        二叉树是一种将结点按照层次结构组织起来的数据结构，每个结点最多只有两个与它直接相关联的子结点。二叉树中的每一个结点都包含3部分：一个数据成员和两个左右指针。通过这种3个成员的结构体，将每个结点的左右指针分别指向该结点的子结点，以此来构建一棵二叉树。</p>
-<p>​        如果满足树的所有叶子结点都在同一层上，或者所有叶子结点都在最后两层上，且倒数第二层是满的，则这棵树是平衡的。</p>
-<h6 id="4种周游算法"><a href="#4种周游算法" class="headerlink" title="4种周游算法"></a>4种周游算法</h6><ol>
-<li>先序遍历：根左右</li>
-<li>中序遍历：左根右</li>
-<li>后序遍历：左右根</li>
-<li>层遍历：首先访问树的根，然后依次向下层处理，按照从左到右的顺序访问每层的结点。</li>
+      <h1 id="怎么创建一个单链表"><a href="#怎么创建一个单链表" class="headerlink" title="怎么创建一个单链表"></a>怎么创建一个单链表</h1><h3 id="什么是链表？"><a href="#什么是链表？" class="headerlink" title="什么是链表？"></a>什么是链表？</h3><p>链表是一种物理存储单元上<strong>非连续、非顺序</strong>的存储结构。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时<strong>动态</strong>生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。 （需要一个头指针存储第一个节点）<a id="more"></a></p>
+<h3 id="怎么创建一个链表"><a href="#怎么创建一个链表" class="headerlink" title="怎么创建一个链表"></a>怎么创建一个链表</h3><p>创建链表涉及下面3步： </p>
+<ol>
+<li>使用malloc() 为结构分配足够的空间</li>
+<li>储存结构的地址；</li>
+<li>把当前信息拷贝到结构中。</li>
 </ol>
-<h6 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h6><p>​        二叉搜索树是由二叉树组成的专用于查找和搜索目的的高效数据结构，因为在最坏的情况下，只需要查找一个分支上的数据就可以了，而不用检索每一个数据。因此，查找操作的复杂度是O（lgn），这里n代表树中的结点个数。</p>
-<h5 id="堆"><a href="#堆" class="headerlink" title="堆"></a><strong>堆</strong></h5><p>​        是一棵二叉树，通常其子结点存储的值比父结点的值小。所以，根结点是树中最大的结点。成为了我最大值堆。子节点比父节点大的，根节点最小，成为最小值堆。</p>
-<h5 id="优先队列"><a href="#优先队列" class="headerlink" title="优先队列"></a><strong>优先队列</strong></h5><p>​        优先队列将数据按照优先级顺序排列。一个优先队列由许多有序的元素构成，所以优先级最高的元素可以有效而快速地确定。</p>
-<p>​        最常用而简单的方法就是维护一个有序数据集。在这个有序数据集中，优先级最高的元素位于数据集的头部。然而，插入或提取元素之后必须重新排列数据集，这是一个复杂度为O（n）的操作（n为数据集元素的个数）。因此，更好的方法就用一个局部有序的堆来实现优先队列。插入或提取数据之后重新排列堆的复杂度仅为O（lgn）。</p>
-<p>应用：包裹分拣</p>
-<p>​        优先队列是用来管理包裹的最佳方法，因为某些场合，我们只关心下一个优先级最高的包裹是哪一个。这样，可以避免维护包裹完全有序的系统开销。</p>
-<h5 id="图"><a href="#图" class="headerlink" title="图"></a><strong>图</strong></h5><p>​        一种灵活的数据结构，一般作为一种模型用来定义对象之间的关联或联系。图由两种类型的元素组成：顶点和边。顶点代表对象，边则建立起对象之间的关系或关联。</p>
-<p>​        我们主要通过邻接表链表结构来表示图。链表中的每个结构体都包含两个成员：一个顶点以及与该顶点相邻接的一个顶点集合。图中的两个重要关系是邻接和关联。顶点的入度指的是以该顶点为终点的边的数目。而顶点的出度指的是以该顶点为起点的边的数目。在无向图中，顶点的度就是与该顶点相关联的边的数目。</p>
-<p>​        没有重复顶点的路径称为简单路径。环是指路径包含相同的顶点两次或两次以上。如果它的每个顶点都能通过某条路径到达其他顶点，那么我们称它为连通的。如果移除某个顶点将使得图或某分支失去连通性，则称该顶点为关结点。如果移除某条边会使得图失去连通性，则称该边为桥。</p>
-<h6 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h6><p>​        广度优先搜索在进一步探索图中的顶点之前先访问当前顶点的所有邻接结点。</p>
-<p>常用来解决最小生成树以及最短路径问题</p>
-<h6 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h6><p>​        深度优先搜索在搜索过程中每当访问到某个顶点后，需要递归地访问此顶点的所有未访问过的相邻顶点。因而，这种搜索将尽可能深地持续探索，直到无法继续为止。</p>
-<p>​        应用环检测以及拓扑排序。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>创建一个链表，依次存储数据并显示。</p>
+<p>做法如下：</p>
+<p>1.创建所需要的结构。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable : 4996)</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span>                       //声明结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="keyword">int</span>       Key;                   <span class="comment">//存储数据</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> * <span class="title">next</span>;</span>            <span class="comment">//指向下一个链表</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>2.创建三个指针</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> * <span class="title">head</span> = <span class="title">NULL</span>;</span>       <span class="comment">//头指针</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> * <span class="title">prev</span>=<span class="title">NULL</span>;</span>         <span class="comment">//存储current的结构</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ListNode</span> * <span class="title">current</span>;</span>           <span class="comment">//每次存储数据</span></span><br></pre></td></tr></table></figure>
+<p>3.读入数据</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> <span class="built_in">end</span>,i;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;<span class="built_in">end</span>) != EOF)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="built_in">end</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			current = (struct ListNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct ListNode));</span><br><span class="line">			<span class="keyword">if</span> (head == <span class="literal">NULL</span>)      <span class="comment">//头指针为空</span></span><br><span class="line">				head = current;    <span class="comment">//设置头指针</span></span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				prev-&gt;next = current;     <span class="comment">//上一次分配的结构存储新结构的指针</span></span><br><span class="line">			(*current).next = <span class="literal">NULL</span>;      <span class="comment">//设置指向空指针</span></span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;(current-&gt;Key));   <span class="comment">//录入数据</span></span><br><span class="line">			prev = current;     <span class="comment">//prev指向当前current分配的结构</span></span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>4.显示链表</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">current = head;          <span class="comment">//指向头指针</span></span><br><span class="line"><span class="keyword">while</span> (current != <span class="literal">NULL</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>, current-&gt;Key);</span><br><span class="line">	current = current-&gt;next;  <span class="comment">//指向下一个指针</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.释放链表</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">		current = head;          <span class="comment">//指向头指针指向的空间</span></span><br><span class="line">		<span class="keyword">while</span> (current != <span class="literal">NULL</span>)  </span><br><span class="line">		&#123;</span><br><span class="line">			</span><br><span class="line">			head = current-&gt;next;   <span class="comment">//原头指针指向的下一个指针</span></span><br><span class="line">			<span class="built_in">free</span>(current);             <span class="comment">//释放头指针原来指向的空间</span></span><br><span class="line">			current = head;         <span class="comment">//再次指向头指针</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是一个简单单链表创建的过程啦！<em>(:з」∠)</em></p>
 
       
       <!-- reward -->
@@ -217,14 +194,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://llsengard.github.io/2020/02/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://llsengard.github.io/2020/02/23/%E5%88%9B%E5%BB%BA%E5%8D%95%E9%93%BE%E8%A1%A8/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%93%BE%E8%A1%A8/" rel="tag">链表</a></li></ul>
 
 
     </footer>
@@ -235,19 +212,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/02/23/%E5%88%9B%E5%BB%BA%E5%8D%95%E9%93%BE%E8%A1%A8/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            创建单链表
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/02/22/TCP-IP/" class="article-nav-link">
+      <a href="/2020/02/22/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">TCP/IP</div>
+        <div class="article-nav-title">数据结构</div>
       </a>
     
   </nav>
