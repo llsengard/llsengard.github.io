@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://llsengard.github.io/"/>
-  <updated>2020-02-23T13:32:46.901Z</updated>
+  <updated>2020-02-28T07:06:38.800Z</updated>
   <id>https://llsengard.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>四种排序方法</title>
+    <link href="https://llsengard.github.io/2020/02/27/%E5%9B%9B%E7%A7%8D%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95/"/>
+    <id>https://llsengard.github.io/2020/02/27/%E5%9B%9B%E7%A7%8D%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95/</id>
+    <published>2020-02-27T15:45:25.000Z</published>
+    <updated>2020-02-28T07:06:38.800Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;四种排序方法&quot;&gt;&lt;a href=&quot;#四种排序方法&quot; class=&quot;headerlink&quot; title=&quot;四种排序方法&quot;&gt;&lt;/a&gt;四种排序方法&lt;/h1&gt;&lt;h3 id=&quot;选择排序&quot;&gt;&lt;a href=&quot;#选择排序&quot; class=&quot;headerlink&quot; title=&quot;选择排序&quot;&gt;&lt;/a&gt;选择排序&lt;/h3&gt;&lt;p&gt;​        选择排序是一种直观的排序思想，简单来说，就是从未排序的数列中找出最大或最小的元素，放在起始地址，接下来在从剩下未排序的数列中选择次小的元素放在第二位置，以此类推。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="c语言" scheme="https://llsengard.github.io/categories/c%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="c语言，排序" scheme="https://llsengard.github.io/tags/c%E8%AF%AD%E8%A8%80%EF%BC%8C%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>创建单链表</title>
